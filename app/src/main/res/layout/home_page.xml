@@ -75,6 +75,7 @@
             android:layout_height="wrap_content"
             android:text="@string/pitch_quiz"
             style="?android:listSeparatorTextViewStyle"
+            android:src="@android:drawable/note1"
             android:gravity="center"/>
 
     </LinearLayout>

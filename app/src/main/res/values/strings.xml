@@ -1,6 +1,8 @@
 <resources>
     <string name="app_name">PitchMaestro</string>
 
-    <string name="hello_world">Hello world!</string>
-    <string name="action_settings">Settings</string>
+    <string name="pitch_detector">Pitch Detector</string>
+    <string name="note_player">Note Player</string>
+    <string name="voice_part_test">Voice Part Test</string>
+    <string name="pitch_quiz">Pitch Quiz</string>
 </resources>

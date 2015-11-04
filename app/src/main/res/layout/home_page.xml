@@ -4,6 +4,7 @@
               android:layout_width="match_parent"
               android:layout_height="match_parent"
               android:gravity="center">
+
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -68,20 +69,16 @@
             android:layout_width="150dp"
             android:layout_height="150dp"
             android:layout_marginLeft="16dp"
-            android:layout_marginRight="16dp"/>
+            android:layout_marginRight="16dp"
+            android:src="drawable/note"/>
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/pitch_quiz"
             style="?android:listSeparatorTextViewStyle"
-            android:src="@android:drawable/note1"
             android:gravity="center"/>
 
     </LinearLayout>
-
-
-
-
 
 </LinearLayout>

@@ -1,8 +1,8 @@
 <resources>
     <string name="app_name">PitchMaestro</string>
-
     <string name="pitch_detector">Pitch Detector</string>
     <string name="note_player">Note Player</string>
     <string name="voice_part_test">Voice Part Test</string>
     <string name="pitch_quiz">Pitch Quiz</string>
+    <string name="action_settings">action</string>
 </resources>

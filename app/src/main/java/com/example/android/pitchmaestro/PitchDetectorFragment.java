@@ -7,4 +7,5 @@ import android.support.v7.app.AppCompatActivity;
  * Created by stephen on 11/3/15.
  */
 public class PitchDetectorFragment extends Fragment{
+
 }

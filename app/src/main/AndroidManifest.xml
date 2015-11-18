@@ -17,13 +17,13 @@
         </activity>
 
         <activity
-            android:name=".NoteWheelActivity"
+            android:name=".PitchDetectorActivity"
             android:label="@string/note_player"
             android:parentActivityName=".HomePageActivity">
         </activity>
 
         <activity
-            android:name=".NoteListActivity"
+            android:name=".NotePagerActivity"
             android:label="@string/note_player"
             android:parentActivityName=".HomePageActivity">
         </activity>

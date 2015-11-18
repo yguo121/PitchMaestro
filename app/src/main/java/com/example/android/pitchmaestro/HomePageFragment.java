@@ -38,19 +38,13 @@ public class HomePageFragment extends Fragment {
         mNotePlayer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(getActivity(), NoteListActivity.class);
+                Intent i = new Intent(getActivity(), NotePagerActivity.class);
                 HomePageFragment.this.startActivity(i);
             }
         });
 
         mPitchQuiz = (ImageButton) v.findViewById(R.id.pitch_quiz);
-        mPitchQuiz.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(getActivity(), NoteWheelActivity.class);
-                HomePageFragment.this.startActivity(i);
-            }
-        });
+        mPitchQuiz.setEnabled(false);
 
         mVoicePartTest = (ImageButton) v.findViewById(R.id.voice_part_test);
         mVoicePartTest.setEnabled(false);

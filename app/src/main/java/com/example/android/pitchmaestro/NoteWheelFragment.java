@@ -14,7 +14,6 @@ import com.anupcowkur.wheelmenu.WheelMenu;
  */
 public class NoteWheelFragment extends Fragment{
     private WheelMenu wheelMenu;
-    /**wang*/
     private TextView mWheelPosition;
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -35,4 +34,11 @@ public class NoteWheelFragment extends Fragment{
 
         return v;
     }
+
+    public static NoteWheelFragment newInstance() {
+        NoteWheelFragment f = new NoteWheelFragment();
+        return f;
+    }
+
+
 }

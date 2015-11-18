@@ -86,4 +86,9 @@ public class NoteListFragment extends Fragment {
         }
 
     }
+
+    public static NoteListFragment newInstance() {
+        NoteListFragment f = new NoteListFragment();
+        return f;
+    }
 }

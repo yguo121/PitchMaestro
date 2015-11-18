@@ -1,7 +1,9 @@
 package com.example.android.pitchmaestro;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,7 +13,7 @@ import android.widget.ImageButton;
 /**
  * Created by stephen on 11/3/15.
  */
-public class HomePage extends AppCompatActivity {
+public class HomePageFragment extends Fragment {
 
     private ImageButton mPitchDetector;
     private ImageButton mNotePlayer;
@@ -19,7 +21,7 @@ public class HomePage extends AppCompatActivity {
     private ImageButton mPitchQuiz;
 
 
-    //@Override   ##nothing to override
+    @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.home_page, container, false);
 
@@ -27,7 +29,7 @@ public class HomePage extends AppCompatActivity {
         mPitchDetector.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(HomePage.this, PitchDetectorFragment.class);
+                Intent i = new Intent(getActivity(), PitchDetectorActivity.class);
                 startActivity(i);
             }
         });
@@ -36,8 +38,8 @@ public class HomePage extends AppCompatActivity {
         mNotePlayer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(HomePage.this, NotePlayerFragment.class);
-                startActivity(i);
+                Intent i = new Intent(getActivity(), NoteListActivity.class);
+                HomePageFragment.this.startActivity(i);
             }
         });
 
@@ -45,18 +47,13 @@ public class HomePage extends AppCompatActivity {
         mPitchQuiz.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Intent i = new Intent(getActivity(), NoteWheelActivity.class);
+                HomePageFragment.this.startActivity(i);
             }
         });
 
         mVoicePartTest = (ImageButton) v.findViewById(R.id.voice_part_test);
-        mVoicePartTest.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-            }
-        });
-
+        mVoicePartTest.setEnabled(false);
 
 
         return v;

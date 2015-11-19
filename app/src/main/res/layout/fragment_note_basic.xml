@@ -17,7 +17,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/wheel_position"
-        android:layout_gravity="center_horizontal"/>
+        android:textSize="40sp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="50dp"/>
 
     <com.anupcowkur.wheelmenu.WheelMenu
         android:id="@+id/wheelMenu"

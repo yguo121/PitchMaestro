@@ -22,6 +22,9 @@ public class NoteListFragment extends Fragment {
     private RecyclerView  mNoteRecyclerView;
     private NoteAdapter mAdapter;
 
+
+
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_note_list, container, false);

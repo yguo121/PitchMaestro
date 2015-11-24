@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="trans_red">#33ff0000</color>
+    <color name="trans_green">#33008000</color>
+    <color name="trans_yellow">#33ffff00</color>
+</resources>

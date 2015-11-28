@@ -13,6 +13,7 @@ import java.util.UUID;
  */
 public class NoteLab {
     private static NoteLab sNoteLab;
+
     private List<Note> mNotes;
 
     public static NoteLab get(Context context){

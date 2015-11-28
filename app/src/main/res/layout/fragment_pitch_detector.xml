@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:id="@+id/pitch_detector_view"
+              android:gravity="center">
+
+    <TextView
+        android:id="@+id/note_display"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:textSize="150dp"
+        android:textColor="#000000"
+        android:background="@drawable/textbox"
+        android:layout_marginRight="24dp"
+        android:layout_marginLeft="24dp"
+        android:gravity="center"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:orientation="horizontal"
+        android:layout_marginTop="16dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginRight="24dp">
+
+        <Button
+            android:id="@+id/negative_red"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight=".20"
+            android:background="@drawable/textbox"
+            />
+
+        <Button
+            android:id="@+id/negative_yellow"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight=".20"
+            android:background="@drawable/textbox"
+            />
+
+        <Button
+            android:id="@+id/neutral_green"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight=".20"
+            android:background="@drawable/textbox"
+            />
+
+        <Button
+            android:id="@+id/positive_yellow"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight=".20"
+            android:background="@drawable/textbox"
+            />
+
+        <Button
+            android:id="@+id/positive_red"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight=".20"
+            android:background="@drawable/textbox"
+            />
+
+    </LinearLayout>
+
+</LinearLayout>

@@ -27,6 +27,7 @@ public class RadialMenuActivity extends Activity {
     public RadialMenuItem firstChildItem, secondChildItem, thirdChildItem;
     private List<RadialMenuItem> children = new ArrayList<RadialMenuItem>();
 
+
     @SuppressWarnings("serial")
     @Override
     public void onCreate(Bundle savedInstanceState) {

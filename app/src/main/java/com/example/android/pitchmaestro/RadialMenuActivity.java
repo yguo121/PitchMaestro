@@ -23,8 +23,7 @@ public class RadialMenuActivity extends Activity {
     private RadialMenuWidget pieMenu;
 
     public Activity activity = this;
-    public RadialMenuItem menuItem, menuCloseItem, menuExpandItem;
-    public RadialMenuItem firstChildItem, secondChildItem, thirdChildItem;
+    public RadialMenuItem menuItem, menuCloseItem, menuExpandItem, firstChildItem, secondChildItem, thirdChildItem;
     private List<RadialMenuItem> children = new ArrayList<RadialMenuItem>();
 
 
@@ -39,41 +38,13 @@ public class RadialMenuActivity extends Activity {
         menuCloseItem = new RadialMenuItem("Close", null);
         menuCloseItem.setDisplayIcon(android.R.drawable.ic_menu_close_clear_cancel);
 
-        menuItem = new RadialMenuItem("Normal","Normal");
-
-        firstChildItem = new RadialMenuItem("First","First");
-        firstChildItem.setOnMenuItemPressed(new RadialMenuItem.RadialMenuItemClickListener() {
-            @Override
-            public void execute() {
-                startActivity(new Intent(RadialMenuActivity.this, TestActivity.class));
-                pieMenu.dismiss();
-            }
-        });
-
-        secondChildItem = new RadialMenuItem("Second",null);
-        secondChildItem.setDisplayIcon(R.drawable.ic_launcher);
-        secondChildItem.setOnMenuItemPressed(new RadialMenuItem.RadialMenuItemClickListener() {
-            @Override
-            public void execute() {
-                Toast.makeText(RadialMenuActivity.this, "Second inner menu selected.", Toast.LENGTH_LONG).show();
-            }
-        });
-
-        thirdChildItem = new RadialMenuItem("Third","Third");
-        thirdChildItem.setDisplayIcon(R.drawable.ic_launcher);
-        thirdChildItem.setOnMenuItemPressed(new RadialMenuItem.RadialMenuItemClickListener() {
-            @Override
-            public void execute() {
-                Toast.makeText(RadialMenuActivity.this, "Third inner menu selected.", Toast.LENGTH_LONG).show();
-            }
-        });
-
+        menuItem = new RadialMenuItem("first","first");
         menuExpandItem = new RadialMenuItem("Expandable", "Expandable");
+        firstChildItem = new RadialMenuItem("Expandable", "Expandable");
+        secondChildItem = new RadialMenuItem("Expandable", "Expandable");
+        thirdChildItem = new RadialMenuItem("Expandable", "Expandable");
 
-        children.add(firstChildItem);
-        children.add(secondChildItem);
-        children.add(thirdChildItem);
-        menuExpandItem.setMenuChildren(children);
+
 
         menuCloseItem.setOnMenuItemPressed(new RadialMenuItem.RadialMenuItemClickListener() {
             @Override
@@ -104,17 +75,14 @@ public class RadialMenuActivity extends Activity {
 
         pieMenu.addMenuEntry(new ArrayList<RadialMenuItem>() {{
             add(menuItem);
-            add(menuExpandItem);}});
+            add(menuExpandItem);
+            add(firstChildItem);
+            add(secondChildItem);
+            add(thirdChildItem);}});
 
         //pieMenu.addMenuEntry(menuItem);
         //pieMenu.addMenuEntry(menuExpandItem);
 
-        Button testButton = (Button) this.findViewById(R.id.radial_menu_btn);
-        testButton.setOnClickListener(new OnClickListener() {
-            public void onClick(View v) {
-                //menuLayout.addView(pieMenu);
-                pieMenu.show(v);
-            }
-        });
+
     }
 }

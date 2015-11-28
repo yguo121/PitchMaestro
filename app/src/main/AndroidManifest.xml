@@ -28,6 +28,14 @@
             android:parentActivityName=".HomePageActivity">
         </activity>
 
+        <activity
+            android:name=".TestActivity"
+            android:label="@string/note_player"
+            android:parentActivityName=".HomePageActivity">
+        </activity>
+
+
+
 
     </application>
 

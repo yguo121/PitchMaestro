@@ -2,7 +2,6 @@ package com.example.android.pitchmaestro;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
@@ -29,7 +28,7 @@ public class NotePagerActivity extends AppCompatActivity {
         public Fragment getItem(int pos) {
             switch(pos) {
                 case 0: return NoteWheelFragment.newInstance();
-                case 1: return NoteListFragment.newInstance();
+                case 1: return NoteListFragmentString.newInstance();
                 default: return NoteWheelFragment.newInstance();
             }
         }

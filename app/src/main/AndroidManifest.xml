@@ -8,7 +8,7 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name=".RadialMenuActivity"
+            android:name=".HomePageActivity"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -33,6 +33,32 @@
             android:label="@string/note_player"
             android:parentActivityName=".HomePageActivity">
         </activity>
+
+        <activity
+            android:name=".NoteListPlayer"
+            android:label="@string/note_player"
+            android:parentActivityName=".HomePageActivity">
+        </activity>
+
+        <activity
+            android:name=".NoteListActivityChoir"
+            android:label="@string/note_player"
+            android:parentActivityName=".HomePageActivity">
+        </activity>
+
+
+        <activity
+            android:name=".NoteListActivityPiano"
+            android:label="@string/note_player"
+            android:parentActivityName=".HomePageActivity">
+        </activity>
+
+        <activity
+            android:name=".NoteListActivityString"
+            android:label="@string/note_player"
+            android:parentActivityName=".HomePageActivity">
+        </activity>
+
 
 
 

@@ -1,7 +1,6 @@
 package com.example.android.pitchmaestro;
 
 import android.os.Bundle;
-import android.provider.ContactsContract;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -16,14 +15,11 @@ import java.util.List;
 /**
  * Created by stephen on 11/16/15.
  */
-public class NoteListFragment extends Fragment {
+public class NoteListFragmentChoir extends Fragment {
 
 
     private RecyclerView  mNoteRecyclerView;
     private NoteAdapter mAdapter;
-
-
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -90,8 +86,9 @@ public class NoteListFragment extends Fragment {
 
     }
 
-    public static NoteListFragment newInstance() {
-        NoteListFragment f = new NoteListFragment();
+    public static NoteListFragmentPiano newInstance() {
+        NoteListFragmentPiano f = new NoteListFragmentPiano();
         return f;
     }
 }
+

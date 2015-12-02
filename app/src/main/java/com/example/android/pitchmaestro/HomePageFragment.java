@@ -35,7 +35,7 @@ public class HomePageFragment extends Fragment {
         mNotePlayer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(getActivity(), NoteListPlayer.class);
+                Intent i = new Intent(getActivity(), RadialMenuFragment.class);
                 HomePageFragment.this.startActivity(i);
             }
         });

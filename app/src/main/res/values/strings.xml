@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">PitchMaestro</string>
+    <string name="pitch_detector">Pitch Detector</string>
+    <string name="note_player">Note Player</string>
+    <string name="voice_part_test">Voice Part Test</string>
+    <string name="pitch_quiz">Pitch Quiz</string>
+    <string name="action_settings">action</string>
+    <string name="radial_demo1">Basic</string>
+    <string name="radial_demo2">Advanced</string>
+    <string name="about">About</string>
+    <string name="main_menu">Home</string>
+    <string name="contact">Contact</string>
+    <string name="about_body">Radial Menu Demo Version 1 by Arindam Nath.</string>
+    <string name="contact_body">Contact Details Here!</string>
+    <string name="main_body">Long press any part of the screen to bring up radial menu.</string>
+    <string name="open_menu">Open Menu</string>
+    <string name="normal">Normal</string>
+    <string name="expandable">Expandable</string>
+    <string name="close">Close</string>
+    <string name="string">String</string>
+    <string name="choir">Choir</string>
+    <string name="piano">Piano</string>
+
+</resources>

@@ -22,14 +22,16 @@ public class RadialMenuFragment extends android.support.v4.app.Fragment {
 
     private RadialMenuWidget pieMenu;
 
+
     public RadialMenuItem menuItem, menuExpandItem, ChildItem1, ChildItem2, ChildItem3, ChildItem4, ChildItem5, ChildItem6, ChildItem7, ChildItem8, ChildItem9, ChildItem10, ChildItem11, ChildItem12;
 
     @SuppressWarnings("serial")
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View v = inflater.inflate(R.layout.radial, container, false);
+        View vie = inflater.inflate(R.layout.radial, container, false);
 
         pieMenu = new RadialMenuWidget(getActivity());
+        pieMenu.show(vie);
 
         menuItem = new RadialMenuItem("first","first");
         menuExpandItem = new RadialMenuItem("Expandable", "Expandable");
@@ -76,15 +78,11 @@ public class RadialMenuFragment extends android.support.v4.app.Fragment {
         pieMenu.setInnerRingRadius(100, 200);
         pieMenu.setTextSize(30);
 
+        return vie;
+    }
 
-        Button BasicButton = (Button)v.findViewById(R.id.radial_menu_btn1);
-        BasicButton.setOnClickListener(new View.OnClickListener() {
-        @Override
-        public void onClick(View v) {
-            pieMenu.show(v);
-        }
-    });
-
-        return v;
+    public static RadialMenuFragment newInstance() {
+        RadialMenuFragment f = new RadialMenuFragment();
+        return f;
     }
 }

@@ -27,9 +27,9 @@ public class NotePagerActivity extends AppCompatActivity {
         @Override
         public Fragment getItem(int pos) {
             switch(pos) {
-                case 0: return NoteWheelFragment.newInstance();
-                case 1: return NoteListFragmentString.newInstance();
-                default: return NoteWheelFragment.newInstance();
+                case 0: return RadialMenuFragment.newInstance();
+                case 1: return NoteListFragmentPlayer.newInstance();
+                default: return RadialMenuFragment.newInstance();
             }
         }
 

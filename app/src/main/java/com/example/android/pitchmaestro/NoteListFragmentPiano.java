@@ -56,6 +56,7 @@ public class NoteListFragmentPiano extends Fragment {
         }
         @Override
         public void onClick(View v){
+            //test
 
             final MediaPlayer mp = new MediaPlayer();
             if (mp.isPlaying())

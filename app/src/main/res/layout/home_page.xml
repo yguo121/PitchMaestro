@@ -28,19 +28,19 @@
             style="?android:listSeparatorTextViewStyle"
             android:gravity="center"/>
 
-        <ImageButton
-            android:id="@+id/voice_part_test"
-            android:layout_width="150dp"
-            android:layout_height="150dp"
-            android:layout_marginLeft="16dp"
-            android:layout_marginRight="16dp"/>
+        <!--<ImageButton-->
+            <!--android:id="@+id/voice_part_test"-->
+            <!--android:layout_width="150dp"-->
+            <!--android:layout_height="150dp"-->
+            <!--android:layout_marginLeft="16dp"-->
+            <!--android:layout_marginRight="16dp"/>-->
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/voice_part_test"
-            style="?android:listSeparatorTextViewStyle"
-            android:gravity="center"/>
+        <!--<TextView-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:text="@string/voice_part_test"-->
+            <!--style="?android:listSeparatorTextViewStyle"-->
+            <!--android:gravity="center"/>-->
 
     </LinearLayout>
 
@@ -67,21 +67,21 @@
             android:gravity="center"/>
 
 
-        <ImageButton
-            android:id="@+id/pitch_quiz"
-            android:layout_width="150dp"
-            android:layout_height="150dp"
-            android:layout_marginLeft="16dp"
-            android:layout_marginRight="16dp"/>
+        <!--<ImageButton-->
+            <!--android:id="@+id/pitch_quiz"-->
+            <!--android:layout_width="150dp"-->
+            <!--android:layout_height="150dp"-->
+            <!--android:layout_marginLeft="16dp"-->
+            <!--android:layout_marginRight="16dp"/>-->
 
 
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/pitch_quiz"
-            style="?android:listSeparatorTextViewStyle"
-            android:gravity="center"/>
+        <!--<TextView-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:text="@string/pitch_quiz"-->
+            <!--style="?android:listSeparatorTextViewStyle"-->
+            <!--android:gravity="center"/>-->
 
     </LinearLayout>
 

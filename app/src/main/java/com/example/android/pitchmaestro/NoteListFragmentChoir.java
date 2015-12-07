@@ -53,6 +53,7 @@ public class NoteListFragmentChoir extends Fragment {
         }
         @Override
         public void onClick(View v){
+            // Play notes
             Toast.makeText(getActivity(), mNote.getTitle() + "clicked!", Toast.LENGTH_SHORT);
         }
 

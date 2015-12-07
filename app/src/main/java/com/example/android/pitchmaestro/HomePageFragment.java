@@ -40,11 +40,11 @@ public class HomePageFragment extends Fragment {
             }
         });
 
-        mPitchQuiz = (ImageButton) v.findViewById(R.id.pitch_quiz);
-        mPitchQuiz.setEnabled(false);
-
-        mVoicePartTest = (ImageButton) v.findViewById(R.id.voice_part_test);
-        mVoicePartTest.setEnabled(false);
+//        mPitchQuiz = (ImageButton) v.findViewById(R.id.pitch_quiz);
+//        mPitchQuiz.setEnabled(false);
+//
+//        mVoicePartTest = (ImageButton) v.findViewById(R.id.voice_part_test);
+//        mVoicePartTest.setEnabled(false);
 
 
         return v;

@@ -29,7 +29,7 @@ public class NoteListFragmentString extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_note_list_choir, container, false);
+        View view = inflater.inflate(R.layout.fragment_note_list_string, container, false);
         mNoteRecyclerView = (RecyclerView) view.findViewById(R.id.note_list_string);
         mNoteRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         updateUI();

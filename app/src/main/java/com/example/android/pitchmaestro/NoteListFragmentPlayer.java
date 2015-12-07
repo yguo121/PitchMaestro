@@ -13,11 +13,11 @@ public class NoteListFragmentPlayer extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         mTabHost = new FragmentTabHost(getActivity());
-        mTabHost.setup(getActivity(), getChildFragmentManager(), R.id.note_list_choir);
+        mTabHost.setup(getActivity(), getChildFragmentManager(), R.id.note_list_piano);
 
-        mTabHost.addTab(mTabHost.newTabSpec("String").setIndicator("String"), NoteListFragmentChoir.class, null);
-        mTabHost.addTab(mTabHost.newTabSpec("Choir").setIndicator("Choir"), NoteListFragmentPiano.class, null);
         mTabHost.addTab(mTabHost.newTabSpec("Piano").setIndicator("Piano"), NoteListFragmentPiano.class, null);
+        mTabHost.addTab(mTabHost.newTabSpec("Choir").setIndicator("Choir"), NoteListFragmentChoir.class, null);
+        mTabHost.addTab(mTabHost.newTabSpec("String").setIndicator("String"), NoteListFragmentString.class, null);
 
         return mTabHost;
     }

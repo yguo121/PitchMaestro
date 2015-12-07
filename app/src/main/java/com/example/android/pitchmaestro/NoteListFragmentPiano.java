@@ -1,5 +1,7 @@
 package com.example.android.pitchmaestro;
 
+import android.content.res.AssetFileDescriptor;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
@@ -10,6 +12,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.io.IOException;
 import java.util.List;
 
 /**
@@ -22,7 +25,7 @@ public class NoteListFragmentPiano extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_note_list_choir, container, false);
+        View view = inflater.inflate(R.layout.fragment_note_list_piano, container, false);
         mNoteRecyclerView = (RecyclerView) view.findViewById(R.id.note_list_piano);
         mNoteRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         updateUI();
@@ -40,6 +43,7 @@ public class NoteListFragmentPiano extends Fragment {
     private class NoteHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
         private TextView mTitleTextView;
         private Note mNote;
+
         public NoteHolder(View itemView){
             super(itemView);
             itemView.setOnClickListener(this);
@@ -52,7 +56,26 @@ public class NoteListFragmentPiano extends Fragment {
         }
         @Override
         public void onClick(View v){
-            Toast.makeText(getActivity(), mNote.getTitle() + "clicked!", Toast.LENGTH_SHORT);
+            //Toast.makeText(getActivity(), mNote.getTitle() + "clicked!", Toast.LENGTH_SHORT);
+
+            final MediaPlayer mp = new MediaPlayer();
+            if (mp.isPlaying())
+            {
+                mp.stop();
+            }
+
+            try {
+                mp.reset();
+                AssetFileDescriptor afd;
+                afd = getContext().getAssets().openFd(mNote.getPianoFile());
+                mp.setDataSource(afd.getFileDescriptor(),afd.getStartOffset(),afd.getLength());
+                mp.prepare();
+                mp.start();
+            } catch (IllegalStateException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
 
 

@@ -19,7 +19,7 @@ import java.util.List;
  * Created by stephen on 11/16/15.
  */
 public class NoteListFragmentPiano extends Fragment {
-
+    /* */
     private RecyclerView  mNoteRecyclerView;
     private NoteAdapter mAdapter;
 

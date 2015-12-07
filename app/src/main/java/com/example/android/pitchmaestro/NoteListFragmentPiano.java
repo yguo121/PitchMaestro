@@ -56,7 +56,6 @@ public class NoteListFragmentPiano extends Fragment {
         }
         @Override
         public void onClick(View v){
-            //Toast.makeText(getActivity(), mNote.getTitle() + "clicked!", Toast.LENGTH_SHORT);
 
             final MediaPlayer mp = new MediaPlayer();
             if (mp.isPlaying())

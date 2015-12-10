@@ -82,14 +82,22 @@ public class PitchDetectorFragment extends Fragment{
                 final float pitchInHz = result.getPitch();
                 final int pitchInHzInInteger = Math.round(pitchInHz);
                 //setColor(getDifference(pitchInHz));
-                mPosYellow.setBackgroundColor(getResources().getColor(R.color.yellow));
+                //mPosYellow.setBackgroundColor(getResources().getColor(R.color.yellow));
                 if(getActivity()==null)
                     return;
                 getActivity().runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
                         mNoteDisplay = (TextView) v.findViewById(R.id.note_display);
-                        mNoteDisplay.setText(getNote(pitchInHz)+ "\n" + pitchInHzInInteger + " Hz  " + getDifference(pitchInHz));
+                        if (pitchInHz != -1) {
+
+                            mNoteDisplay.setText(getNote(pitchInHz) + "\n" + pitchInHzInInteger + " Hz");
+                            setColor(getDifference(pitchInHz));
+                        } else {
+                            //TODO Add to string.xml later
+                            resetColor();
+                            mNoteDisplay.setText("Please speak louder!");
+                        }
                     }
                 });
             }
@@ -124,41 +132,81 @@ public class PitchDetectorFragment extends Fragment{
         double cNote = step * (ind - indNoteA4) + cNoteA4;      // Nearest Note in log-value
         double cDiff = c - cNote;
 
-        if (cDiff < 1.0/48.0) {
+        if (cDiff < -15) {
             return leftRed;
-        } else if (cDiff < -0.01) {
+        } else if (cDiff < -5) {
             return leftYellow;
-        } else if (cDiff < 0.01) {
+        } else if (cDiff < 5) {
             return midGreen;
-        } else if (cDiff < 1.0/48.0) {
+        } else if (cDiff < 15) {
             return rightYellow;
-        } else {
+        } else if (cDiff >= 15) {    // 0.3 <= cDiff <= 0.5
             return rightRed;
+        } else {
+            return "";
         }
 
     }
 
+
+    //test
+    private double getCDiff(float pitch) {
+
+        double step = 1.0/12.0;
+        double expStep = Math.pow(2.0, step);
+        double cNoteA4 = 12.0 * Math.log(440.0) / Math.log(2);  // Log-value pitch of Note A4
+        int indNoteA4 = 57;                                     // Index of Note A4 in the mNoteArray
+
+        double p = (double) pitch;                              // Pitch in Hertz
+        double e = (Math.log(p)-2.79)/0.057;
+        int ind = Math.round((float) e);                        // Index in the mNoteArray
+
+        double c = (Math.log(p)/Math.log(expStep));             // Log-value pitch
+        double cNote = step * (ind - indNoteA4) + cNoteA4;      // Nearest Note in log-value
+        double cDiff = c - cNote;
+
+        return cDiff;
+
+    }
+
+
     private void setColor(String color){
+        if (color == "") {
+            resetColor();
+        }
+
         if (color == leftRed){
+            resetColor();
             mNegRed.setBackgroundColor(getResources().getColor(R.color.red));
         }
 
         if (color == leftYellow){
+            resetColor();
             mNegYellow.setBackgroundColor(getResources().getColor(R.color.yellow));
         }
 
         if (color == midGreen){
+            resetColor();
             mNeuGreen.setBackgroundColor(getResources().getColor(R.color.green));
         }
 
         if (color == rightYellow){
+            resetColor();
             mPosYellow.setBackgroundColor(getResources().getColor(R.color.yellow));
         }
 
         if (color == rightRed){
+            resetColor();
             mPosRed.setBackgroundColor(getResources().getColor(R.color.red));
         }
     }
 
+    private void resetColor() {
+        mNegRed.setBackgroundColor(getResources().getColor(R.color.trans_red));
+        mNegYellow.setBackgroundColor(getResources().getColor(R.color.trans_yellow));
+        mNeuGreen.setBackgroundColor(getResources().getColor(R.color.trans_green));
+        mPosYellow.setBackgroundColor(getResources().getColor(R.color.trans_yellow));
+        mPosRed.setBackgroundColor(getResources().getColor(R.color.trans_red));
+    }
 
 }

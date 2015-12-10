@@ -61,8 +61,9 @@ public class RadialMenuFragment extends android.support.v4.app.Fragment {
         pieMenu.setOutlineColor(Color.BLACK, 225);
         pieMenu.setInnerRingColor(0xAA66CC, 180);
         pieMenu.setOuterRingColor(0x0099CC, 180);
-        //pieMenu.setHeader("Test Menu", 20);
         pieMenu.setCenterCircle(ChildItem1);
+        //pieMenu.setHeader("Test Menu", 20);
+
 
         pieMenu.addMenuEntry(new ArrayList<RadialMenuItem>() {{
             add(ChildItem1);
@@ -107,11 +108,15 @@ public class RadialMenuFragment extends android.support.v4.app.Fragment {
 
     // Enable each ChildItem to play a note when clicked
     private void setNoteToItem(RadialMenuItem childItem, final String string) {
+
         final MediaPlayer mp = new MediaPlayer();
+        final RadialMenuItem temp1 = childItem;
 
         childItem.setOnMenuItemPressed(new RadialMenuItem.RadialMenuItemClickListener() {
             @Override
             public void execute() {
+                pieMenu.setCenterCircle(temp1);
+
                 if (mp.isPlaying())
                 {
                     mp.stop();

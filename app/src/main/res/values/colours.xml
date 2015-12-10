@@ -3,6 +3,9 @@
     <color name="trans_red">#33ff0000</color>
     <color name="trans_green">#33008000</color>
     <color name="trans_yellow">#33ffff00</color>
+    <color name="yellow">#FFFF00</color>
+    <color name="red">#FF0000</color>
+    <color name="green">#008000</color>
     <color name="colorPrimary">#125688</color>
     <color name="colorPrimaryDark">#125688</color>
     <color name="textColorPrimary">#FFFFFF</color>

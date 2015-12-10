@@ -17,7 +17,7 @@ public class NoteListFragmentPlayer extends Fragment {
 
         mTabHost.addTab(mTabHost.newTabSpec("Pitch Pipe").setIndicator("Pitch Pipe"), NoteListFragmentPipe.class, null);
         mTabHost.addTab(mTabHost.newTabSpec("Piano").setIndicator("Piano"), NoteListFragmentPiano.class, null);
-        mTabHost.addTab(mTabHost.newTabSpec("String").setIndicator("String"), NoteListFragmentString.class, null);
+        //mTabHost.addTab(mTabHost.newTabSpec("String").setIndicator("String"), NoteListFragmentString.class, null);
 
         return mTabHost;
     }

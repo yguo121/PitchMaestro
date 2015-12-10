@@ -24,6 +24,12 @@ import be.tarsos.dsp.pitch.PitchProcessor;
  */
 public class PitchDetectorFragment extends Fragment{
 
+    private String leftRed      = "LR";
+    private String leftYellow   = "LY";
+    private String midGreen     = "MG";
+    private String rightYellow  = "RY";
+    private String rightRed     = "RR";
+
     private Button mNegRed;
     private Button mNegYellow;
     private Button mNeuGreen;
@@ -75,14 +81,15 @@ public class PitchDetectorFragment extends Fragment{
             public void handlePitch(PitchDetectionResult result,AudioEvent e) {
                 final float pitchInHz = result.getPitch();
                 final int pitchInHzInInteger = Math.round(pitchInHz);
-
+                //setColor(getDifference(pitchInHz));
+                mPosYellow.setBackgroundColor(getResources().getColor(R.color.yellow));
                 if(getActivity()==null)
                     return;
                 getActivity().runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
                         mNoteDisplay = (TextView) v.findViewById(R.id.note_display);
-                        mNoteDisplay.setText(getNote(pitchInHz)+ "\n" + pitchInHzInInteger + " Hz");
+                        mNoteDisplay.setText(getNote(pitchInHz)+ "\n" + pitchInHzInInteger + " Hz  " + getDifference(pitchInHz));
                     }
                 });
             }
@@ -95,10 +102,63 @@ public class PitchDetectorFragment extends Fragment{
     }
 
     private String getNote(float pitch) {
-        double d = pitch;
-        double e = (Math.log(d)-2.79)/0.057;
-        float f = (float) e;
-        int i = Math.round(f);
+        double p = (double) pitch;              // Pitch in Hertz
+        double e = (Math.log(p)-2.79)/0.057;
+        int i = Math.round((float) e);          // Index in the mNoteArray
+
         return mNoteArray[i];
     }
+
+    private String getDifference(float pitch) {
+
+        double step = 1.0/12.0;
+        double expStep = Math.pow(2.0, step);
+        double cNoteA4 = 12.0 * Math.log(440.0) / Math.log(2);  // Log-value pitch of Note A4
+        int indNoteA4 = 57;                                     // Index of Note A4 in the mNoteArray
+
+        double p = (double) pitch;                              // Pitch in Hertz
+        double e = (Math.log(p)-2.79)/0.057;
+        int ind = Math.round((float) e);                        // Index in the mNoteArray
+
+        double c = (Math.log(p)/Math.log(expStep));             // Log-value pitch
+        double cNote = step * (ind - indNoteA4) + cNoteA4;      // Nearest Note in log-value
+        double cDiff = c - cNote;
+
+        if (cDiff < 1.0/48.0) {
+            return leftRed;
+        } else if (cDiff < -0.01) {
+            return leftYellow;
+        } else if (cDiff < 0.01) {
+            return midGreen;
+        } else if (cDiff < 1.0/48.0) {
+            return rightYellow;
+        } else {
+            return rightRed;
+        }
+
+    }
+
+    private void setColor(String color){
+        if (color == leftRed){
+            mNegRed.setBackgroundColor(getResources().getColor(R.color.red));
+        }
+
+        if (color == leftYellow){
+            mNegYellow.setBackgroundColor(getResources().getColor(R.color.yellow));
+        }
+
+        if (color == midGreen){
+            mNeuGreen.setBackgroundColor(getResources().getColor(R.color.green));
+        }
+
+        if (color == rightYellow){
+            mPosYellow.setBackgroundColor(getResources().getColor(R.color.yellow));
+        }
+
+        if (color == rightRed){
+            mPosRed.setBackgroundColor(getResources().getColor(R.color.red));
+        }
+    }
+
+
 }

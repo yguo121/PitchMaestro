@@ -32,11 +32,11 @@ public class NoteLab {
 //            note.setTitle("Note #" + i);
 //            mNotes.add(note);
 //        }
-        for (int i = 1; i <= 8; i++) {
+        for (int i = 0; i < 8; i++) {
             for (int j = 0; j < 12; j++) {
                 Note note = new Note();
 
-                int indexPipe = (i-1)*12+j+1;
+                int indexPipe = i*12 + j + 1;
                 int indexPiano = indexPipe - 9;
                 int indexString = indexPipe;
 

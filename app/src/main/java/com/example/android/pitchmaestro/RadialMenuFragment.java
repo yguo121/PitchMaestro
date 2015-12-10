@@ -84,8 +84,6 @@ public class RadialMenuFragment extends android.support.v4.app.Fragment {
         pieMenu.setInnerRingRadius(100, 200);
         pieMenu.setTextSize(30);
 
-        // final MediaPlayer mp = new MediaPlayer();
-
         setNoteToItem(ChildItem1, "wheel01.wav");
         setNoteToItem(ChildItem2, "wheel02.wav");
         setNoteToItem(ChildItem3, "wheel03.wav");
@@ -98,31 +96,7 @@ public class RadialMenuFragment extends android.support.v4.app.Fragment {
         setNoteToItem(ChildItem10, "wheel10.wav");
         setNoteToItem(ChildItem11, "wheel11.wav");
         setNoteToItem(ChildItem12, "wheel12.wav");
-        /*
-        ChildItem1.setOnMenuItemPressed(new RadialMenuItem.RadialMenuItemClickListener() {
-            @Override
-            public void execute() {
-                if (mp.isPlaying()) {
-                    mp.stop();
-                }
 
-                try {
-
-                    mp.reset();
-                    AssetFileDescriptor afd;
-                    afd = getContext().getAssets().openFd("wheel01.wav");
-                    mp.setDataSource(afd.getFileDescriptor(), afd.getStartOffset(), afd.getLength());
-                    mp.prepare();
-                    mp.start();
-                } catch (IllegalStateException e) {
-                    e.printStackTrace();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
-        });
-
-        */
         return v;
     }
 

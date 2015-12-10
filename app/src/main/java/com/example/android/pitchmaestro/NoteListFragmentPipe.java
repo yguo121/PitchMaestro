@@ -15,7 +15,7 @@ import java.util.List;
 /**
  * Created by stephen on 11/16/15.
  */
-public class NoteListFragmentChoir extends Fragment {
+public class NoteListFragmentPipe extends Fragment {
 
 
     private RecyclerView  mNoteRecyclerView;
@@ -23,8 +23,8 @@ public class NoteListFragmentChoir extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_note_list_choir, container, false);
-        mNoteRecyclerView = (RecyclerView) view.findViewById(R.id.note_list_choir);
+        View view = inflater.inflate(R.layout.fragment_note_list_pipe, container, false);
+        mNoteRecyclerView = (RecyclerView) view.findViewById(R.id.note_list_pipe);
         mNoteRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         updateUI();
         return view;

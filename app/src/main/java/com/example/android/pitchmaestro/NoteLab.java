@@ -37,7 +37,10 @@ public class NoteLab {
                 Note note = new Note();
 
                 int index = (i-1)*12+j+1;
-                note.setPianoFile("pipe (" + index + ")");
+
+                note.setPipeFile("pipe (" + index + ").wav");
+                note.setPianoFile("piano (" + index + ").wav");
+                note.setStringFile("string (" + index + ").wav");
 
                 switch(j) {
                     case 0:

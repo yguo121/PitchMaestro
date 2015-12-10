@@ -11,7 +11,7 @@ public class Note {
     private String mTitle;
     private String mPianoFile;
     private String mStringFile;
-    private String mChoirFile;
+    private String mPipeFile;
 
     public Note(){
         mId = UUID.randomUUID();
@@ -29,12 +29,12 @@ public class Note {
         return mId;
     }
 
-    public String getChoirFile() {
-        return mChoirFile;
+    public String getPipeFile() {
+        return mPipeFile;
     }
 
-    public void setChoirFile(String choirFile) {
-        mChoirFile = choirFile;
+    public void setPipeFile(String pipeFile) {
+        mPipeFile = pipeFile;
     }
 
     public String getPianoFile() {

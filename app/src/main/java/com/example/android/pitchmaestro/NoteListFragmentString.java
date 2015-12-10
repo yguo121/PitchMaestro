@@ -4,6 +4,8 @@ package com.example.android.pitchmaestro;
  * Created by stephen on 11/28/15.
  */
 
+import android.content.res.AssetFileDescriptor;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
@@ -14,6 +16,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.io.IOException;
 import java.util.List;
 
 /**
@@ -57,11 +60,28 @@ public class NoteListFragmentString extends Fragment {
             mNote = note;
             mTitleTextView.setText(mNote.getTitle());
         }
+
         @Override
         public void onClick(View v){
-            Toast.makeText(getActivity(), mNote.getTitle() + "clicked!", Toast.LENGTH_SHORT);
-        }
+            final MediaPlayer mp = new MediaPlayer();
+            if (mp.isPlaying())
+            {
+                mp.stop();
+            }
 
+            try {
+                mp.reset();
+                AssetFileDescriptor afd;
+                afd = getContext().getAssets().openFd(mNote.getStringFile());
+                mp.setDataSource(afd.getFileDescriptor(),afd.getStartOffset(),afd.getLength());
+                mp.prepare();
+                mp.start();
+            } catch (IllegalStateException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
 
     }
 

@@ -1,6 +1,9 @@
 package com.example.android.pitchmaestro;
 
+import android.content.res.AssetFileDescriptor;
+import android.media.MediaPlayer;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -10,6 +13,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.io.IOException;
 import java.util.List;
 
 /**
@@ -51,10 +55,30 @@ public class NoteListFragmentPipe extends Fragment {
             mNote = note;
             mTitleTextView.setText(mNote.getTitle());
         }
+
         @Override
         public void onClick(View v){
-            // Play notes
-            Toast.makeText(getActivity(), mNote.getTitle() + "clicked!", Toast.LENGTH_SHORT);
+            //v.setSoundEffectsEnabled(false);
+            final MediaPlayer mp = new MediaPlayer();
+
+            if (mp.isPlaying())
+            {
+                mp.stop();
+            }
+
+            try {
+                mp.reset();
+
+                AssetFileDescriptor afd;
+                afd = getContext().getAssets().openFd(mNote.getPipeFile());
+                mp.setDataSource(afd.getFileDescriptor(), afd.getStartOffset(), afd.getLength());
+                mp.prepare();
+                mp.start();
+            } catch (IllegalStateException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
 
 

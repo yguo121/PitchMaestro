@@ -74,13 +74,15 @@ public class PitchDetectorFragment extends Fragment{
             @Override
             public void handlePitch(PitchDetectionResult result,AudioEvent e) {
                 final float pitchInHz = result.getPitch();
+                final int pitchInHzInInteger = Math.round(pitchInHz);
+
                 if(getActivity()==null)
                     return;
                 getActivity().runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
                         mNoteDisplay = (TextView) v.findViewById(R.id.note_display);
-                        mNoteDisplay.setText(getNote(pitchInHz)+ ", " + pitchInHz);
+                        mNoteDisplay.setText(getNote(pitchInHz)+ "\n" + pitchInHzInInteger + " Hz");
                     }
                 });
             }

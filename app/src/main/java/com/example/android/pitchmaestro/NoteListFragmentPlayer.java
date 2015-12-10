@@ -15,7 +15,7 @@ public class NoteListFragmentPlayer extends Fragment {
         mTabHost = new FragmentTabHost(getActivity());
         mTabHost.setup(getActivity(), getChildFragmentManager(), R.id.note_list_pipe);
 
-        mTabHost.addTab(mTabHost.newTabSpec("Pipe").setIndicator("Pipe"), NoteListFragmentPipe.class, null);
+        mTabHost.addTab(mTabHost.newTabSpec("Pitch Pipe").setIndicator("Pitch Pipe"), NoteListFragmentPipe.class, null);
         mTabHost.addTab(mTabHost.newTabSpec("Piano").setIndicator("Piano"), NoteListFragmentPiano.class, null);
         mTabHost.addTab(mTabHost.newTabSpec("String").setIndicator("String"), NoteListFragmentString.class, null);
 

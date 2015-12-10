@@ -33,14 +33,16 @@ public class NoteLab {
 //            mNotes.add(note);
 //        }
         for (int i = 1; i <= 8; i++) {
-            for (int j = 0; j<12; j++) {
+            for (int j = 0; j < 12; j++) {
                 Note note = new Note();
 
-                int index = (i-1)*12+j+1;
+                int indexPipe = (i-1)*12+j+1;
+                int indexPiano = indexPipe - 9;
+                int indexString = indexPipe;
 
-                note.setPipeFile("pipe (" + index + ").wav");
-                note.setPianoFile("piano (" + index + ").wav");
-                note.setStringFile("string (" + index + ").wav");
+                note.setPipeFile("pipe (" + indexPipe + ").wav");
+                note.setPianoFile("piano (" + indexPiano + ").wav");
+                note.setStringFile("string (" + indexString + ").wav");
 
                 switch(j) {
                     case 0:

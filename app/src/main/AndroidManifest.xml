@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.android.pitchmaestro" >
+          package="com.example.android.pitchmaestro" >
 
     <uses-permission android:name="android.permission.RECORD_AUDIO"></uses-permission>
 
@@ -11,7 +11,8 @@
         android:theme="@style/AppTheme" >
         <activity
             android:name=".HomePageActivity"
-            android:label="@string/app_name" >
+            android:label="@string/app_name"
+            android:screenOrientation="portrait" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -22,18 +23,21 @@
         <activity
             android:name=".PitchDetectorActivity"
             android:label="@string/pitch_detector"
+            android:screenOrientation="portrait"
             android:parentActivityName=".HomePageActivity">
         </activity>
 
         <activity
             android:name=".NotePagerActivity"
             android:label="@string/note_player"
+            android:screenOrientation="portrait"
             android:parentActivityName=".HomePageActivity">
         </activity>
 
         <activity
             android:name=".TestActivity"
             android:label="@string/note_player"
+            android:screenOrientation="portrait"
             android:parentActivityName=".HomePageActivity">
         </activity>
 

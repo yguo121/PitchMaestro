@@ -60,7 +60,7 @@ public class PitchDetectorFragment extends Fragment{
         mPosRed = (Button) v.findViewById(R.id.positive_red);
         mPosRed.setBackgroundColor(getResources().getColor(R.color.trans_red));
 
-        for (int i=0, j=1; i<mNoteArray.length; i+=12, j++) {
+        for (int i=0, j=0; i<mNoteArray.length; i+=12, j++) {
             String k = Integer.toString(j);
             mNoteArray[i] = "C"+k;
             mNoteArray[i+1] = "C#"+k+"/Db"+k;
@@ -92,14 +92,13 @@ public class PitchDetectorFragment extends Fragment{
                     public void run() {
                         mNoteDisplay = (TextView) v.findViewById(R.id.note_display);
                         mPitchDisplay = (TextView) v.findViewById(R.id.pitch_display);
-                        if (pitchInHz != -1) {
 
+                        if (pitchInHz != -1) {
                             mNoteDisplay.setText(getNote(pitchInHz));
                             mPitchDisplay.setText(pitchInHzInInteger + " Hz");
                             setColor(getDifference(pitchInHz));
                             mLast = getNote(pitchInHz);
                         } else {
-                            //TODO Add to string.xml later
                             resetColor();
                             mNoteDisplay.setText(mLast);
                         }

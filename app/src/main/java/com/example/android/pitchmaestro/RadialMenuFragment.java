@@ -6,9 +6,6 @@ package com.example.android.pitchmaestro;
 import java.io.IOException;
 import java.util.ArrayList;
 
-import com.widget.radialmenu.RadialMenuItem;
-import com.widget.radialmenu.RadialMenuWidget;
-
 
 import android.content.Intent;
 import android.content.res.AssetFileDescriptor;
@@ -21,6 +18,9 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.Button;
+
+import com.example.android.pitchmaestro.radialmenu.RadialMenuItem;
+import com.example.android.pitchmaestro.radialmenu.RadialMenuWidget;
 
 public class RadialMenuFragment extends android.support.v4.app.Fragment {
 

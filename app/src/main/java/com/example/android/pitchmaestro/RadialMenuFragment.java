@@ -41,16 +41,16 @@ public class RadialMenuFragment extends android.support.v4.app.Fragment {
         menuItem = new RadialMenuItem("first","first");
         menuExpandItem = new RadialMenuItem("Expandable", "Expandable");
         ChildItem1 = new RadialMenuItem("C", "C");
-        ChildItem2 = new RadialMenuItem("#/b", "#/b");
+        ChildItem2 = new RadialMenuItem("#/\u266D", "#/\u266D");
         ChildItem3 = new RadialMenuItem("D", "D");
-        ChildItem4 = new RadialMenuItem("#/b", "#/b");
+        ChildItem4 = new RadialMenuItem("#/\u266D", "#/\u266D");
         ChildItem5 = new RadialMenuItem("E", "E");
         ChildItem6 = new RadialMenuItem("F", "F");
-        ChildItem7 = new RadialMenuItem("#/b", "#/b");
+        ChildItem7 = new RadialMenuItem("#/\u266D", "#/\u266D");
         ChildItem8 = new RadialMenuItem("G", "G");
-        ChildItem9 = new RadialMenuItem("#/b", "#/b");
+        ChildItem9 = new RadialMenuItem("#/\u266D", "#/\u266D");
         ChildItem10 = new RadialMenuItem("A", "A");
-        ChildItem11 = new RadialMenuItem("#/b", "#/b");
+        ChildItem11 = new RadialMenuItem("#/\u266D", "#/\u266D");
         ChildItem12 = new RadialMenuItem("B", "B");
 
         //pieMenu.setDismissOnOutsideClick(true, menuLayout);

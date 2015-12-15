@@ -36,6 +36,8 @@ public class PitchDetectorFragment extends Fragment{
     private Button mPosYellow;
     private Button mPosRed;
     private TextView mNoteDisplay;
+    private TextView mPitchDisplay;
+    private String mLast = "Start";
 
     private String[] mNoteArray = new String[96];
 
@@ -89,14 +91,17 @@ public class PitchDetectorFragment extends Fragment{
                     @Override
                     public void run() {
                         mNoteDisplay = (TextView) v.findViewById(R.id.note_display);
+                        mPitchDisplay = (TextView) v.findViewById(R.id.pitch_display);
                         if (pitchInHz != -1) {
 
-                            mNoteDisplay.setText(getNote(pitchInHz) + "\n" + pitchInHzInInteger + " Hz");
+                            mNoteDisplay.setText(getNote(pitchInHz));
+                            mPitchDisplay.setText(pitchInHzInInteger + " Hz");
                             setColor(getDifference(pitchInHz));
+                            mLast = getNote(pitchInHz);
                         } else {
                             //TODO Add to string.xml later
                             resetColor();
-                            mNoteDisplay.setText("Please speak louder!");
+                            mNoteDisplay.setText(mLast);
                         }
                     }
                 });
@@ -111,7 +116,7 @@ public class PitchDetectorFragment extends Fragment{
 
     private String getNote(float pitch) {
         double p = (double) pitch;              // Pitch in Hertz
-        double e = (Math.log(p)-2.79)/0.057;
+        double e = (Math.log(p)-2.79)/0.058;
         int i = Math.round((float) e);          // Index in the mNoteArray
 
         return mNoteArray[i];
@@ -119,56 +124,41 @@ public class PitchDetectorFragment extends Fragment{
 
     private String getDifference(float pitch) {
 
+        /*
         double step = 1.0/12.0;
         double expStep = Math.pow(2.0, step);
         double cNoteA4 = 12.0 * Math.log(440.0) / Math.log(2);  // Log-value pitch of Note A4
         int indNoteA4 = 57;                                     // Index of Note A4 in the mNoteArray
+        */
 
         double p = (double) pitch;                              // Pitch in Hertz
-        double e = (Math.log(p)-2.79)/0.057;
+        double e = (Math.log(p)-2.79)/0.058;
         int ind = Math.round((float) e);                        // Index in the mNoteArray
+        double lp = 2.79 + (ind*0.058);
+        double diff = Math.log(pitch) - lp;
 
+        /*
         double c = (Math.log(p)/Math.log(expStep));             // Log-value pitch
         double cNote = step * (ind - indNoteA4) + cNoteA4;      // Nearest Note in log-value
         double cDiff = c - cNote;
+        */
 
-        if (cDiff < -15) {
-            return leftRed;
-        } else if (cDiff < -5) {
-            return leftYellow;
-        } else if (cDiff < 5) {
-            return midGreen;
-        } else if (cDiff < 15) {
-            return rightYellow;
-        } else if (cDiff >= 15) {    // 0.3 <= cDiff <= 0.5
+
+        if (diff > 0.0174) {
             return rightRed;
+        } else if (diff > 0.0058) {
+            return rightYellow;
+        } else if (diff > -0.0058) {
+            return midGreen;
+        } else if (diff > -0.0174) {
+            return leftYellow;
+        } else if (diff > -0.029) {    // 0.3 <= cDiff <= 0.5
+            return leftRed;
         } else {
             return "";
         }
 
     }
-
-
-    //test
-    private double getCDiff(float pitch) {
-
-        double step = 1.0/12.0;
-        double expStep = Math.pow(2.0, step);
-        double cNoteA4 = 12.0 * Math.log(440.0) / Math.log(2);  // Log-value pitch of Note A4
-        int indNoteA4 = 57;                                     // Index of Note A4 in the mNoteArray
-
-        double p = (double) pitch;                              // Pitch in Hertz
-        double e = (Math.log(p)-2.79)/0.057;
-        int ind = Math.round((float) e);                        // Index in the mNoteArray
-
-        double c = (Math.log(p)/Math.log(expStep));             // Log-value pitch
-        double cNote = step * (ind - indNoteA4) + cNoteA4;      // Nearest Note in log-value
-        double cDiff = c - cNote;
-
-        return cDiff;
-
-    }
-
 
     private void setColor(String color){
         if (color == "") {

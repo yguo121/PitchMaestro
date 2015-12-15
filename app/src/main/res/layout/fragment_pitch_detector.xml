@@ -10,12 +10,21 @@
         android:id="@+id/note_display"
         android:layout_width="match_parent"
         android:layout_height="200dp"
-        android:textSize="50dp"
+        android:textSize="100sp"
         android:textColor="#000000"
-        android:background="@drawable/textbox"
         android:layout_marginRight="24dp"
         android:layout_marginLeft="24dp"
         android:gravity="center"/>
+
+    <TextView
+        android:id="@+id/pitch_display"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:textSize="50sp"
+        android:layout_marginRight="24dp"
+        android:layout_marginLeft="24dp"
+        android:gravity="center"
+        />
 
     <LinearLayout
         android:layout_width="match_parent"

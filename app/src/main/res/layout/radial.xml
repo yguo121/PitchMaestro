@@ -5,4 +5,13 @@
                 android:layout_height="fill_parent"
                 android:layout_gravity="bottom">
 
+    <Button
+        android:text="@string/radial_demo1"
+        android:layout_width="wrap_content"
+        android:id="@+id/radial_menu_btn1"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"/>
+
 </RelativeLayout>
+

@@ -60,19 +60,19 @@ public class PitchDetectorFragment extends Fragment{
         mPosRed = (Button) v.findViewById(R.id.positive_red);
         mPosRed.setBackgroundColor(getResources().getColor(R.color.trans_red));
 
-        for (int i=0, j=1; i<mNoteArray.length; i+=12, j++) {
+        for (int i=0, j=0; i<mNoteArray.length; i+=12, j++) {
             String k = Integer.toString(j);
             mNoteArray[i] = "C"+k;
-            mNoteArray[i+1] = "C#"+k+"/Db"+k;
+            mNoteArray[i+1] = "C#"+k+"/D\u266D"+k;
             mNoteArray[i+2] = "D"+k;
-            mNoteArray[i+3] = "D#"+k+"/Eb"+k;
+            mNoteArray[i+3] = "D#"+k+"/E\u266D"+k;
             mNoteArray[i+4] = "E"+k;
             mNoteArray[i+5] = "F"+k;
-            mNoteArray[i+6] = "F#"+k+"/Gb"+k;
+            mNoteArray[i+6] = "F#"+k+"/G\u266D"+k;
             mNoteArray[i+7] = "G"+k;
-            mNoteArray[i+8] = "G#"+k+"/Ab"+k;
+            mNoteArray[i+8] = "G#"+k+"/A\u266D"+k;
             mNoteArray[i+9] = "A"+k;
-            mNoteArray[i+10] = "A#"+k+"/Bb"+k;
+            mNoteArray[i+10] = "A#"+k+"/B\u266D"+k;
             mNoteArray[i+11] = "B"+k;
         }
 
@@ -92,14 +92,13 @@ public class PitchDetectorFragment extends Fragment{
                     public void run() {
                         mNoteDisplay = (TextView) v.findViewById(R.id.note_display);
                         mPitchDisplay = (TextView) v.findViewById(R.id.pitch_display);
-                        if (pitchInHz != -1) {
 
+                        if (pitchInHz != -1) {
                             mNoteDisplay.setText(getNote(pitchInHz));
                             mPitchDisplay.setText(pitchInHzInInteger + " Hz");
                             setColor(getDifference(pitchInHz));
                             mLast = getNote(pitchInHz);
                         } else {
-                            //TODO Add to string.xml later
                             resetColor();
                             mNoteDisplay.setText(mLast);
                         }

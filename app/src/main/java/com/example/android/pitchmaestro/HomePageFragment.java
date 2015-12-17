@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
+import android.widget.RelativeLayout;
 
 /**
  * Created by stephen on 11/3/15.
@@ -22,6 +23,7 @@ public class HomePageFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.home_page, container, false);
 
+
         mPitchDetector = (ImageButton) v.findViewById(R.id.pitch_detector);
         mPitchDetector.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -35,7 +37,7 @@ public class HomePageFragment extends Fragment {
         mNotePlayer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(getActivity(), NotePagerActivity.class);
+                Intent i = new Intent(getActivity(), RadialMenuActivity.class);
                 HomePageFragment.this.startActivity(i);
             }
         });

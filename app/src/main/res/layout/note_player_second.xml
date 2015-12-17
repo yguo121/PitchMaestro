@@ -3,7 +3,8 @@
               android:orientation="horizontal"
               android:layout_width="match_parent"
               android:layout_height="match_parent"
-              android:id="@+id/home_page"
+              android:id="@+id/note_player_second"
+              android:background="@drawable/background_1"
               android:gravity="center">
 
     <LinearLayout
@@ -14,7 +15,7 @@
         android:layout_marginLeft="4dp">
 
         <ImageButton
-            android:id="@+id/pitch_detector"
+            android:id="@+id/note_basic"
             android:layout_width="150dp"
             android:layout_height="150dp"
             android:layout_marginLeft="16dp"
@@ -24,23 +25,9 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/pitch_detector"
+            android:text="Basic"
             style="?android:listSeparatorTextViewStyle"
             android:gravity="center"/>
-
-        <!--<ImageButton-->
-            <!--android:id="@+id/voice_part_test"-->
-            <!--android:layout_width="150dp"-->
-            <!--android:layout_height="150dp"-->
-            <!--android:layout_marginLeft="16dp"-->
-            <!--android:layout_marginRight="16dp"/>-->
-
-        <!--<TextView-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:text="@string/voice_part_test"-->
-            <!--style="?android:listSeparatorTextViewStyle"-->
-            <!--android:gravity="center"/>-->
 
     </LinearLayout>
 
@@ -52,7 +39,7 @@
         android:layout_marginLeft="4dp">
 
         <ImageButton
-            android:id="@+id/note_player"
+            android:id="@+id/note_advanced"
             android:layout_width="150dp"
             android:layout_height="150dp"
             android:layout_marginLeft="16dp"
@@ -62,26 +49,9 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/note_player"
+            android:text="Advanced"
             style="?android:listSeparatorTextViewStyle"
             android:gravity="center"/>
-
-
-        <!--<ImageButton-->
-            <!--android:id="@+id/pitch_quiz"-->
-            <!--android:layout_width="150dp"-->
-            <!--android:layout_height="150dp"-->
-            <!--android:layout_marginLeft="16dp"-->
-            <!--android:layout_marginRight="16dp"/>-->
-
-
-
-        <!--<TextView-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:text="@string/pitch_quiz"-->
-            <!--style="?android:listSeparatorTextViewStyle"-->
-            <!--android:gravity="center"/>-->
 
     </LinearLayout>
 

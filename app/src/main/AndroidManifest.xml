@@ -19,7 +19,6 @@
             </intent-filter>
         </activity>
 
-
         <activity
             android:name=".PitchDetectorActivity"
             android:label="@string/pitch_detector"
@@ -27,21 +26,27 @@
             android:parentActivityName=".HomePageActivity">
         </activity>
 
+
         <activity
-            android:name=".NotePagerActivity"
+            android:name=".NoteListActivityPlayer"
+            android:label="@string/note_player"
+            android:screenOrientation="portrait"
+            android:parentActivityName=".note_secondactivity">
+        </activity>
+
+        <activity
+            android:name=".RadialMenuActivity"
+            android:label="@string/note_player"
+            android:screenOrientation="portrait"
+            android:parentActivityName=".note_secondactivity">
+        </activity>
+
+        <activity
+            android:name=".note_secondactivity"
             android:label="@string/note_player"
             android:screenOrientation="portrait"
             android:parentActivityName=".HomePageActivity">
         </activity>
-
-        <activity
-            android:name=".TestActivity"
-            android:label="@string/note_player"
-            android:screenOrientation="portrait"
-            android:parentActivityName=".HomePageActivity">
-        </activity>
-
-
 
     </application>
 

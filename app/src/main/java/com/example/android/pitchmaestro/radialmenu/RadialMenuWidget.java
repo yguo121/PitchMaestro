@@ -22,6 +22,7 @@ import java.util.List;
 
 import android.content.Context;
 import android.graphics.*;
+import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.view.*;
 import android.widget.PopupWindow;
@@ -44,7 +45,7 @@ public class RadialMenuWidget extends View {
 
 	private int defaultColor = Color.rgb(34, 96, 120); // default color of wedge
 														// pieces
-	private int defaultAlpha = 180; // transparency of the colors, 255=Opague,
+	private int defaultAlpha = 250; // transparency of the colors, 255=Opague,
 									// 0=Transparent
 	private int wedge2Color = Color.rgb(50, 50, 50); // default color of wedge
 														// pieces
@@ -156,6 +157,8 @@ public class RadialMenuWidget extends View {
 		super(context);
 		helper = new RadialMenuHelper();
 		mWindow = helper.initPopup(context);
+		//mWindow.setFocusable(true);
+
 		// Gets screen specs and defaults to center of screen
 		this.xPosition = (getResources().getDisplayMetrics().widthPixels) / 2;
 		this.yPosition = (getResources().getDisplayMetrics().heightPixels) / 2;
@@ -293,10 +296,9 @@ public class RadialMenuWidget extends View {
 			} else {
 				// This is when something outside the circle or any of the rings
 				// is selected
-				// Puck YOUR DISMISSAL.
-				//dismiss();
-				// selected = null;
-				// enabled = null;
+				dismiss();
+				//selected = null;
+				//enabled = null;
 			}
 			// selected = null;
 			selected2 = null;

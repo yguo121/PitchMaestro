@@ -18,6 +18,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageButton;
 
 import com.example.android.pitchmaestro.radialmenu.RadialMenuItem;
 import com.example.android.pitchmaestro.radialmenu.RadialMenuWidget;
@@ -27,16 +28,19 @@ public class RadialMenuFragment extends android.support.v4.app.Fragment {
     final MediaPlayer mp = new MediaPlayer();
 
     private RadialMenuWidget pieMenu;
+    private ImageButton mAdvanced;
 
     public RadialMenuItem menuItem, menuExpandItem, ChildItem1, ChildItem2, ChildItem3, ChildItem4, ChildItem5, ChildItem6, ChildItem7, ChildItem8, ChildItem9, ChildItem10, ChildItem11, ChildItem12;
 
     @SuppressWarnings("serial")
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View v = inflater.inflate(R.layout.radial, container, false);
+        View v = inflater.inflate(R.layout.note_player_second, container, false);
 
         pieMenu = new RadialMenuWidget(getActivity());
-        pieMenu.show(v);
+        //pieMenu.show(v);
+        pieMenu.setFocusable(true);
+        pieMenu.setFocusableInTouchMode(true);
 
         menuItem = new RadialMenuItem("first","first");
         menuExpandItem = new RadialMenuItem("Expandable", "Expandable");
@@ -63,7 +67,6 @@ public class RadialMenuFragment extends android.support.v4.app.Fragment {
         pieMenu.setOuterRingColor(0x0099CC, 180);
         pieMenu.setCenterCircle(ChildItem1);
         //pieMenu.setHeader("Test Menu", 20);
-
 
         pieMenu.addMenuEntry(new ArrayList<RadialMenuItem>() {{
             add(ChildItem1);
@@ -97,6 +100,25 @@ public class RadialMenuFragment extends android.support.v4.app.Fragment {
         setNoteToItem(ChildItem10, "wheel10.wav");
         setNoteToItem(ChildItem11, "wheel11.wav");
         setNoteToItem(ChildItem12, "wheel12.wav");
+
+        pieMenu.setHeader("Touch Outside to Exit", 50);
+
+        ImageButton BasicButton = (ImageButton)v.findViewById(R.id.note_basic);
+        BasicButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                pieMenu.show(v);
+            }
+        });
+
+        mAdvanced = (ImageButton) v.findViewById(R.id.note_advanced);
+        mAdvanced.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(getActivity(), NoteListActivityPlayer.class);
+                startActivity(i);
+            }
+        });
 
         return v;
     }
@@ -137,5 +159,7 @@ public class RadialMenuFragment extends android.support.v4.app.Fragment {
             }
         });
     }
+
+
 
 }

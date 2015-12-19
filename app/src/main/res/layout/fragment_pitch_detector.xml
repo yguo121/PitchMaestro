@@ -4,6 +4,7 @@
               android:layout_width="match_parent"
               android:layout_height="match_parent"
               android:id="@+id/pitch_detector_view"
+              android:background="@drawable/pitchdetectorbackground"
               android:gravity="center">
 
     <TextView

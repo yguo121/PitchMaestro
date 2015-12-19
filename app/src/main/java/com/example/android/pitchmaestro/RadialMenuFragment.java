@@ -28,7 +28,7 @@ public class RadialMenuFragment extends android.support.v4.app.Fragment {
     final MediaPlayer mp = new MediaPlayer();
 
     private RadialMenuWidget pieMenu;
-    private ImageButton mAdvanced;
+    private Button mAdvanced;
 
     public RadialMenuItem menuItem, menuExpandItem, ChildItem1, ChildItem2, ChildItem3, ChildItem4, ChildItem5, ChildItem6, ChildItem7, ChildItem8, ChildItem9, ChildItem10, ChildItem11, ChildItem12;
 
@@ -103,7 +103,7 @@ public class RadialMenuFragment extends android.support.v4.app.Fragment {
 
         pieMenu.setHeader("Touch Outside to Exit", 50);
 
-        ImageButton BasicButton = (ImageButton)v.findViewById(R.id.note_basic);
+        Button BasicButton = (Button)v.findViewById(R.id.note_basic);
         BasicButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -111,7 +111,7 @@ public class RadialMenuFragment extends android.support.v4.app.Fragment {
             }
         });
 
-        mAdvanced = (ImageButton) v.findViewById(R.id.note_advanced);
+        mAdvanced = (Button) v.findViewById(R.id.note_advanced);
         mAdvanced.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

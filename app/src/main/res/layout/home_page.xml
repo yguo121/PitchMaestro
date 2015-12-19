@@ -17,6 +17,7 @@
             android:id="@+id/pitch_detector"
             android:layout_width="400dp"
             android:layout_height="300dp"
+            android:background="#33e8f0ef"
             android:src="@drawable/pitch"/>
 
         <TextView
@@ -39,6 +40,7 @@
             android:id="@+id/note_player"
             android:layout_width="400dp"
             android:layout_height="300dp"
+            android:background="#33e8f0ef"
             android:src="@drawable/note"/>
 
         <TextView

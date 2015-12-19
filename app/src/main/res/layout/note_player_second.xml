@@ -17,8 +17,9 @@
             android:id="@+id/note_basic"
             android:layout_width="400dp"
             android:layout_height="300dp"
+            android:background="#80e8f0ef"
             android:text="Basic"
-            android:textSize="30sp"
+            android:textSize="60sp"
             android:textColor="#000000"/>
 
     </LinearLayout>
@@ -33,8 +34,9 @@
             android:id="@+id/note_advanced"
             android:layout_width="400dp"
             android:layout_height="300dp"
+            android:background="#80e8f0ef"
             android:text="Advanced"
-            android:textSize="30sp"
+            android:textSize="60sp"
             android:textColor="#000000"/>
 
     </LinearLayout>

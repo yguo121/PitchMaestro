@@ -40,6 +40,7 @@ public class RadialMenuWidget extends View {
 	private List<RadialMenuItem> menuEntries = new ArrayList<RadialMenuItem>();
 	private RadialMenuItem centerCircle = null;
 
+
 	private float screen_density = getContext().getResources()
 			.getDisplayMetrics().density;
 

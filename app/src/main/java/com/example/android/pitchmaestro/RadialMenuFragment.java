@@ -59,14 +59,15 @@ public class RadialMenuFragment extends android.support.v4.app.Fragment {
         //pieMenu.setDismissOnOutsideClick(true, menuLayout);
         pieMenu.setAnimationSpeed(0L);
         pieMenu.setBackgroundColor(0);
-        pieMenu.setSourceLocation(180, 200);
+        pieMenu.setSourceLocation(70, 200);
         pieMenu.setIconSize(15, 30);
         pieMenu.setTextSize(13);
         pieMenu.setOutlineColor(Color.BLACK, 225);
-        pieMenu.setInnerRingColor(0xAA66CC, 180);
-        pieMenu.setOuterRingColor(0x0099CC, 180);
+        pieMenu.setInnerRingColor(0X79243d, 255);
+        pieMenu.setOuterRingColor(0X7fffd3, 180);
         pieMenu.setCenterCircle(ChildItem1);
-        //pieMenu.setHeader("Test Menu", 20);
+        pieMenu.setCenterLocation(375,600);
+        pieMenu.setHeaderColors(0X000000, 0Xffffff , 0Xffffff, 0);
 
         pieMenu.addMenuEntry(new ArrayList<RadialMenuItem>() {{
             add(ChildItem1);
@@ -85,7 +86,8 @@ public class RadialMenuFragment extends android.support.v4.app.Fragment {
 
         //pieMenu.addMenuEntry(menuItem);
         //pieMenu.addMenuEntry(menuExpandItem);
-        pieMenu.setInnerRingRadius(100, 200);
+        pieMenu.setInnerRingRadius(100, 250);
+        pieMenu.setCenterCircleRadius(80);
         pieMenu.setTextSize(30);
 
         setNoteToItem(ChildItem1, "wheel01.wav");
@@ -131,14 +133,13 @@ public class RadialMenuFragment extends android.support.v4.app.Fragment {
     // Enable each ChildItem to play a note when clicked
     private void setNoteToItem(RadialMenuItem childItem, final String string) {
 
-        final MediaPlayer mp = new MediaPlayer();
-        final RadialMenuItem temp1 = childItem;
+        //final MediaPlayer mp = new MediaPlayer();
+        //bfinal RadialMenuItem temp1 = childItem;
 
         childItem.setOnMenuItemPressed(new RadialMenuItem.RadialMenuItemClickListener() {
             @Override
             public void execute() {
-                pieMenu.setCenterCircle(temp1);
-
+                final MediaPlayer mp = new MediaPlayer();
                 if (mp.isPlaying())
                 {
                     mp.stop();
@@ -148,8 +149,7 @@ public class RadialMenuFragment extends android.support.v4.app.Fragment {
                     mp.reset();
                     AssetFileDescriptor afd;
                     afd = getContext().getAssets().openFd(string);
-                    mp.setDataSource(afd.getFileDescriptor(),afd.getStartOffset(),afd.getLength());
-                    mp.setLooping(true);
+                    mp.setDataSource(afd.getFileDescriptor(), afd.getStartOffset(), afd.getLength());
                     mp.prepare();
                     mp.start();
                 } catch (IllegalStateException e) {

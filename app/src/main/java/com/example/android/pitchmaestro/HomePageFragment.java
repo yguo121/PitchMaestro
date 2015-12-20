@@ -9,14 +9,14 @@ import android.widget.ImageButton;
 import android.widget.RelativeLayout;
 
 /**
- * Created by stephen on 11/3/15.
+ * The is the home page fragment which contains two buttons.
+ *
+ * @author Yinghuan Wang (yinghuanwang521@gmail.com )
  */
 public class HomePageFragment extends Fragment {
 
-    private ImageButton mPitchDetector;
-    private ImageButton mNotePlayer;
-    private ImageButton mVoicePartTest;
-    private ImageButton mPitchQuiz;
+    private ImageButton mPitchDetector;     // the button of the pitch detector.
+    private ImageButton mNotePlayer;        // the button of the note player.
 
 
     @Override
@@ -27,7 +27,7 @@ public class HomePageFragment extends Fragment {
         mPitchDetector = (ImageButton) v.findViewById(R.id.pitch_detector);
         mPitchDetector.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onClick(View v) {       //the click listener of the pitch detector button.
                 Intent i = new Intent(getActivity(), PitchDetectorActivity.class);
                 startActivity(i);
             }
@@ -36,18 +36,11 @@ public class HomePageFragment extends Fragment {
         mNotePlayer = (ImageButton) v.findViewById(R.id.note_player);
         mNotePlayer.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onClick(View v) {       //the click listener of the note player button.
                 Intent i = new Intent(getActivity(), RadialMenuActivity.class);
                 HomePageFragment.this.startActivity(i);
             }
         });
-
-//        mPitchQuiz = (ImageButton) v.findViewById(R.id.pitch_quiz);
-//        mPitchQuiz.setEnabled(false);
-//
-//        mVoicePartTest = (ImageButton) v.findViewById(R.id.voice_part_test);
-//        mVoicePartTest.setEnabled(false);
-
 
         return v;
     }

@@ -9,15 +9,23 @@ import java.util.List;
 import java.util.UUID;
 
 /**
- * Created by stephen on 11/15/15.
+ * This is the class of the Note.
+ *
+ * @author Yinghuan Wang (yinghuanwang521@gmail.com )
+ * @author Yaoqi Guo (yaoqi.guo@trincoll.edu)
+ * @author Peter Jung (peter.jung@trincoll.edu)
  */
 public class NoteLab {
-    private static NoteLab sNoteLab;
 
-    //private String[] mNoteList = {"C","C#"}
+    private static NoteLab sNoteLab;        // the note.
 
-    private List<Note> mNotes;
+    private List<Note> mNotes;              // the list of all the notes.
 
+
+    /**
+     * The constructor of the notes.
+     * @return Notelab - the note lab.
+     */
     public static NoteLab get(Context context){
         if (sNoteLab == null){
             sNoteLab = new NoteLab(context);
@@ -25,25 +33,27 @@ public class NoteLab {
         return sNoteLab;
     }
 
+    /**
+     * The constructor of the notes which sets the title and the audio file accordingly.
+     * @param context
+     */
     private NoteLab(Context context){
         mNotes = new ArrayList<>();
-//        for (int i = 0; i < 96; i++){
-//            Note note = new Note();
-//            note.setTitle("Note #" + i);
-//            mNotes.add(note);
-//        }
+
         for (int i = 0; i < 8; i++) {
             for (int j = 0; j < 12; j++) {
                 Note note = new Note();
 
-                int indexPipe = i*12 + j + 1;
-                int indexPiano = indexPipe - 9;
-                int indexString = indexPipe;
+                int indexPipe = i*12 + j + 1;       // index of the pipe
+                int indexPiano = indexPipe - 9;     // index of the piano
+                int indexString = indexPipe;        // index of the string
 
+                // set the file name.
                 note.setPipeFile("pipe (" + indexPipe + ").wav");
                 note.setPianoFile("piano (" + indexPiano + ").wav");
                 note.setStringFile("string (" + indexString + ").wav");
 
+                // set the title accordingly
                 switch(j) {
                     case 0:
                         note.setTitle("C" + i);
@@ -98,16 +108,12 @@ public class NoteLab {
         }
     }
 
+    /**
+     * The getter of the note list.
+     * @return mNotes - the list of notes.
+     */
     public List<Note> getNotes(){
         return mNotes;
     }
-//
-//    public Note getNote(UUID id){
-//        for (Note note : mNotes){
-//            if (note.getId().equals(id)){
-//                return note;
-//            }
-//        }
-//        return null;
-//    }
+
 }

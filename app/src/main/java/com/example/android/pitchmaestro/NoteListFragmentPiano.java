@@ -18,12 +18,15 @@ import java.io.IOException;
 import java.util.List;
 
 /**
- * Created by stephen on 11/16/15.
+ * This class contains the piano notes list.
+ *
+ * @author Yinghuan Wang (yinghuanwang521@gmail.com )
+ * @author Yaoqi Guo (yaoqi.guo@trincoll.edu)
  */
 public class NoteListFragmentPiano extends Fragment {
 
-    private RecyclerView mNoteRecyclerView;
-    private NoteAdapter mAdapter;
+    private RecyclerView mNoteRecyclerView;     // the recyclerview of the list.
+    private NoteAdapter mAdapter;               // the adapter of the recycler view
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -36,6 +39,9 @@ public class NoteListFragmentPiano extends Fragment {
         return view;
     }
 
+    /**
+     * updates the UI accordingly.
+     */
     private void updateUI(){
         NoteLab noteLab = NoteLab.get(getActivity());
         List<Note> notes = noteLab.getNotes();
@@ -44,27 +50,43 @@ public class NoteListFragmentPiano extends Fragment {
         mNoteRecyclerView.setAdapter(mAdapter);
     }
 
+    /**
+     * This class is the note holder class which implements all the functions of the note holder .
+     */
     private class NoteHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
-        private TextView mTitleTextView;
-        private Note mNote;
+        private TextView mTitleTextView;        // the text view of the note holder
+        private Note mNote;                     // the content of the note holder
 
+
+        /**
+         * The constructor of the note holder.
+         * @param  itemView - the view of the note holder.
+         */
         public NoteHolder(View itemView){
             super(itemView);
-            itemView.setOnClickListener(this);
-            mTitleTextView = (TextView) itemView.findViewById(R.id.list_item_note_title_text_view);
+            itemView.setOnClickListener(this);                                                      // the click listener
+            mTitleTextView = (TextView) itemView.findViewById(R.id.list_item_note_title_text_view); // set the text.
         }
 
+        /**
+         * bind the note in the note holder with the note in the mNote list .
+         * @return HomePageFragment - the home page fragment.
+         */
         public void bindNote(Note note){
             mNote = note;
             mTitleTextView.setText(mNote.getTitle());
         }
 
+        /**
+         * set the click listener .
+         * @param v - the view.
+         */
         @Override
         public void onClick(View v){
 
             mTitleTextView.setBackgroundColor(0xFFD1EEEE);
 
-            final MediaPlayer mp = new MediaPlayer();
+            final MediaPlayer mp = new MediaPlayer();       //start a media player
             if (mp.isPlaying())
             {
                 mp.stop();
@@ -88,6 +110,7 @@ public class NoteListFragmentPiano extends Fragment {
                 public void onCompletion(MediaPlayer mp) {
                     mTitleTextView.setBackgroundColor(0x00FFFFFF);
                     mp.release();
+                    //release the media player
                 }
             });
         }
@@ -95,6 +118,9 @@ public class NoteListFragmentPiano extends Fragment {
 
     }
 
+    /**
+     * The adapter class.
+     */
     private class NoteAdapter extends RecyclerView.Adapter<NoteHolder>{
         private List<Note> mNotes;
 
@@ -121,6 +147,7 @@ public class NoteListFragmentPiano extends Fragment {
         }
 
     }
+
 
     public static NoteListFragmentPiano newInstance() {
         NoteListFragmentPiano f = new NoteListFragmentPiano();

@@ -12,6 +12,8 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.android.pitchmaestro.radialmenu.DividerItemDecoration;
+
 import java.io.IOException;
 import java.util.List;
 
@@ -28,6 +30,8 @@ public class NoteListFragmentPiano extends Fragment {
         View view = inflater.inflate(R.layout.fragment_note_list_piano, container, false);
         mNoteRecyclerView = (RecyclerView) view.findViewById(R.id.note_list_piano);
         mNoteRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+        mNoteRecyclerView.addItemDecoration(new DividerItemDecoration(getActivity(), DividerItemDecoration.VERTICAL_LIST));
+
         updateUI();
         return view;
     }

@@ -65,7 +65,7 @@ public class NoteListFragmentPipe extends Fragment {
         @Override
         public void onClick(View v){
 
-            mTitleTextView.setBackgroundColor(0xFFC0C0C0);
+            mTitleTextView.setBackgroundColor(0xFFD1EEEE);
 
             final MediaPlayer mp = new MediaPlayer();
 

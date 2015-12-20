@@ -50,7 +50,7 @@ public class NoteLab {
                         mNotes.add(note);
                         break;
                     case 1:
-                        note.setTitle("C#" + i + "/Db" + i);
+                        note.setTitle("C\u266F" + i + "/D\u266D" + i);
                         mNotes.add(note);
                         break;
                     case 2:
@@ -58,7 +58,7 @@ public class NoteLab {
                         mNotes.add(note);
                         break;
                     case 3:
-                        note.setTitle("D#" + i + "/Eb" + i);
+                        note.setTitle("D\u266F" + i + "/E\u266D" + i);
                         mNotes.add(note);
                         break;
                     case 4:
@@ -70,7 +70,7 @@ public class NoteLab {
                         mNotes.add(note);
                         break;
                     case 6:
-                        note.setTitle("F#" + i + "/Gb" + i);
+                        note.setTitle("F\u266F" + i + "/G\u266D" + i);
                         mNotes.add(note);
                         break;
                     case 7:
@@ -78,7 +78,7 @@ public class NoteLab {
                         mNotes.add(note);
                         break;
                     case 8:
-                        note.setTitle("G#" + i + "/Ab" + i);
+                        note.setTitle("G\u266F" + i + "/A\u266D" + i);
                         mNotes.add(note);
                         break;
                     case 9:
@@ -86,7 +86,7 @@ public class NoteLab {
                         mNotes.add(note);
                         break;
                     case 10:
-                        note.setTitle("A#" + i + "/Bb" + i);
+                        note.setTitle("A\u266F" + i + "/B\u266D" + i);
                         mNotes.add(note);
                         break;
                     case 11:

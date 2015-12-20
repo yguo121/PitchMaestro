@@ -149,6 +149,7 @@ public class RadialMenuFragment extends android.support.v4.app.Fragment {
                     AssetFileDescriptor afd;
                     afd = getContext().getAssets().openFd(string);
                     mp.setDataSource(afd.getFileDescriptor(),afd.getStartOffset(),afd.getLength());
+                    mp.setLooping(true);
                     mp.prepare();
                     mp.start();
                 } catch (IllegalStateException e) {

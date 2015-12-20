@@ -39,6 +39,9 @@ public class NotePianoLab {
         for (int i = 0; i < 88; i++) {
             Note note = new Note();
 
+            String[] octaves = {"\u2080", "\u2081", "\u2082", "\u2083",
+                    "\u2084", "\u2085", "\u2086", "\u2087", "\u2088"};
+
             int nOctave = (i < 2) ? 0 : (i + 9)/12;
             int nNote = (i + 9) % 12;
             int indexPiano = i + 1;     // index of the piano
@@ -49,51 +52,51 @@ public class NotePianoLab {
             // set the title accordingly
             switch(nNote) {
                 case 0:
-                    note.setTitle("C" + nOctave);
+                    note.setTitle("C" + octaves[nOctave]);
                     mNotes.add(note);
                     break;
                 case 1:
-                    note.setTitle("C\u266F" + nOctave + "/D\u266D" + nOctave);
+                    note.setTitle("C\u266F" + octaves[nOctave] + "/D\u266D" + octaves[nOctave]);
                     mNotes.add(note);
                     break;
                 case 2:
-                    note.setTitle("D" + nOctave);
+                    note.setTitle("D" + octaves[nOctave]);
                     mNotes.add(note);
                     break;
                 case 3:
-                    note.setTitle("D\u266F" + nOctave + "/E\u266D" + nOctave);
+                    note.setTitle("D\u266F" + octaves[nOctave] + "/E\u266D" + octaves[nOctave]);
                     mNotes.add(note);
                     break;
                 case 4:
-                    note.setTitle("E" + nOctave);
+                    note.setTitle("E" + octaves[nOctave]);
                     mNotes.add(note);
                     break;
                 case 5:
-                    note.setTitle("F" + nOctave);
+                    note.setTitle("F" + octaves[nOctave]);
                     mNotes.add(note);
                     break;
                 case 6:
-                    note.setTitle("F\u266F" + nOctave + "/G\u266D" + nOctave);
+                    note.setTitle("F\u266F" + octaves[nOctave] + "/G\u266D" + octaves[nOctave]);
                     mNotes.add(note);
                     break;
                 case 7:
-                    note.setTitle("G" + nOctave);
+                    note.setTitle("G" + octaves[nOctave]);
                     mNotes.add(note);
                     break;
                 case 8:
-                    note.setTitle("G\u266F" + nOctave + "/A\u266D" + nOctave);
+                    note.setTitle("G\u266F" + octaves[nOctave] + "/A\u266D" + octaves[nOctave]);
                     mNotes.add(note);
                     break;
                 case 9:
-                    note.setTitle("A" + nOctave);
+                    note.setTitle("A" + octaves[nOctave]);
                     mNotes.add(note);
                     break;
                 case 10:
-                    note.setTitle("A\u266F" + nOctave + "/B\u266D" + nOctave);
+                    note.setTitle("A\u266F" + octaves[nOctave] + "/B\u266D" + octaves[nOctave]);
                     mNotes.add(note);
                     break;
                 case 11:
-                    note.setTitle("B" + nOctave);
+                    note.setTitle("B" + octaves[nOctave]);
                     mNotes.add(note);
                     break;
             }

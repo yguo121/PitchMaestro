@@ -48,6 +48,8 @@ public class PitchDetectorFragment extends Fragment{
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         final View v = inflater.inflate(R.layout.fragment_pitch_detector, container, false);
+        final String[] octaves = {"\u2080", "\u2081", "\u2082", "\u2083",
+                "\u2084", "\u2085", "\u2086", "\u2087", "\u2088"};
 
         mNegRed = (Button) v.findViewById(R.id.negative_red);
         mNegRed.setBackgroundColor(getResources().getColor(R.color.trans_red));
@@ -65,19 +67,18 @@ public class PitchDetectorFragment extends Fragment{
         mPosRed.setBackgroundColor(getResources().getColor(R.color.trans_red));
 
         for (int i=0, j=0; i<mNoteArray.length; i+=12, j++) {
-            String k = Integer.toString(j);
-            mNoteArray[i]       = "C";
-            mNoteArray[i+1]     = "C\u266F"+k+"/D\u266D"+k;
-            mNoteArray[i+2]     = "D"+k;
-            mNoteArray[i+3]     = "D\u266F"+k+"/E\u266D"+k;
-            mNoteArray[i+4]     = "E"+k;
-            mNoteArray[i+5]     = "F"+k;
-            mNoteArray[i+6]     = "F\u266F"+k+"/G\u266D"+k;
-            mNoteArray[i+7]     = "G"+k;
-            mNoteArray[i+8]     = "G\u266F"+k+"/A\u266D"+k;
-            mNoteArray[i+9]     = "A"+k;
-            mNoteArray[i+10]    = "A\u266F"+k+"/B\u266D"+k;
-            mNoteArray[i+11]    = "B"+k;
+            mNoteArray[i]       = "C"+ octaves[j];
+            mNoteArray[i+1]     = "C\u266F"+ octaves[j] +"/D\u266D"+ octaves[j];
+            mNoteArray[i+2]     = "D"+ octaves[j];
+            mNoteArray[i+3]     = "D\u266F"+ octaves[j] +"/E\u266D"+ octaves[j];
+            mNoteArray[i+4]     = "E"+ octaves[j];
+            mNoteArray[i+5]     = "F"+ octaves[j];
+            mNoteArray[i+6]     = "F\u266F"+ octaves[j] +"/G\u266D"+ octaves[j];
+            mNoteArray[i+7]     = "G"+ octaves[j];
+            mNoteArray[i+8]     = "G\u266F"+ octaves[j] +"/A\u266D"+ octaves[j];
+            mNoteArray[i+9]     = "A"+ octaves[j];
+            mNoteArray[i+10]    = "A\u266F"+ octaves[j] +"/B\u266D"+ octaves[j];
+            mNoteArray[i+11]    = "B"+ octaves[j];
         }
 
         AudioDispatcher dispatcher = AudioDispatcherFactory.fromDefaultMicrophone(22050, 1024, 0);
@@ -148,16 +149,16 @@ public class PitchDetectorFragment extends Fragment{
         */
 
 
-        if (diff > 0.0174) {
-            return rightRed;            // >0.0174
-        } else if (diff > 0.0058) {
-            return rightYellow;         // 0.0058~0.0174
-        } else if (diff > -0.0058) {
-            return midGreen;            // -0.0058~0.0058
-        } else if (diff > -0.0174) {
-            return leftYellow;          // -0.0174~-0.0058
+        if (diff > 0.02) {
+            return rightRed;            // >0.02
+        } else if (diff > 0.008) {
+            return rightYellow;         // 0.008~0.02
+        } else if (diff > -0.008) {
+            return midGreen;            // -0.008~0.008
+        } else if (diff > -0.02) {
+            return leftYellow;          // -0.02~-0.008
         } else if (diff > -0.029) {
-            return leftRed;             // -0.029~-0.0174
+            return leftRed;             // -0.029~-0.02
         } else {
             return "";
         }

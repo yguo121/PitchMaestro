@@ -62,18 +62,18 @@ public class PitchDetectorFragment extends Fragment{
 
         for (int i=0, j=0; i<mNoteArray.length; i+=12, j++) {
             String k = Integer.toString(j);
-            mNoteArray[i] = "C"+k;
-            mNoteArray[i+1] = "C#"+k+"/D\u266D"+k;
-            mNoteArray[i+2] = "D"+k;
-            mNoteArray[i+3] = "D#"+k+"/E\u266D"+k;
-            mNoteArray[i+4] = "E"+k;
-            mNoteArray[i+5] = "F"+k;
-            mNoteArray[i+6] = "F#"+k+"/G\u266D"+k;
-            mNoteArray[i+7] = "G"+k;
-            mNoteArray[i+8] = "G#"+k+"/A\u266D"+k;
-            mNoteArray[i+9] = "A"+k;
-            mNoteArray[i+10] = "A#"+k+"/B\u266D"+k;
-            mNoteArray[i+11] = "B"+k;
+            mNoteArray[i]       = "C"+k;
+            mNoteArray[i+1]     = "C\u266F"+k+"/D\u266D"+k;
+            mNoteArray[i+2]     = "D"+k;
+            mNoteArray[i+3]     = "D\u266F"+k+"/E\u266D"+k;
+            mNoteArray[i+4]     = "E"+k;
+            mNoteArray[i+5]     = "F"+k;
+            mNoteArray[i+6]     = "F\u266F"+k+"/G\u266D"+k;
+            mNoteArray[i+7]     = "G"+k;
+            mNoteArray[i+8]     = "G\u266F"+k+"/A\u266D"+k;
+            mNoteArray[i+9]     = "A"+k;
+            mNoteArray[i+10]    = "A\u266F"+k+"/B\u266D"+k;
+            mNoteArray[i+11]    = "B"+k;
         }
 
         AudioDispatcher dispatcher = AudioDispatcherFactory.fromDefaultMicrophone(22050, 1024, 0);
@@ -130,10 +130,11 @@ public class PitchDetectorFragment extends Fragment{
         int indNoteA4 = 57;                                     // Index of Note A4 in the mNoteArray
         */
 
+        double c = 1.0/12.0*Math.log(2.0);
         double p = (double) pitch;                              // Pitch in Hertz
-        double e = (Math.log(p)-2.79)/0.058;
+        double e = (Math.log(p)-2.79)/c;
         int ind = Math.round((float) e);                        // Index in the mNoteArray
-        double lp = 2.79 + (ind*0.058);
+        double lp = 2.79 + (ind*c);
         double diff = Math.log(pitch) - lp;
 
         /*
@@ -144,15 +145,15 @@ public class PitchDetectorFragment extends Fragment{
 
 
         if (diff > 0.0174) {
-            return rightRed;
+            return rightRed;            // >0.0174
         } else if (diff > 0.0058) {
-            return rightYellow;
+            return rightYellow;         // 0.0058~0.0174
         } else if (diff > -0.0058) {
-            return midGreen;
+            return midGreen;            // -0.0058~0.0058
         } else if (diff > -0.0174) {
-            return leftYellow;
-        } else if (diff > -0.029) {    // 0.3 <= cDiff <= 0.5
-            return leftRed;
+            return leftYellow;          // -0.0174~-0.0058
+        } else if (diff > -0.029) {
+            return leftRed;             // -0.029~-0.0174
         } else {
             return "";
         }

@@ -23,7 +23,7 @@ import android.util.Log;
 /**
  * This class handles the menu item creation.
  * 
- * @author Jason Valestin (valestin@gmail.com )
+ * @author Jason Valestin (valestin@gmail.com)
  * @author Arindam Nath (strider2023@gmail.com)
  */
 public class RadialMenuItem implements RadialMenuInterface {

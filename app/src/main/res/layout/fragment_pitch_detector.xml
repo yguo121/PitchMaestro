@@ -11,7 +11,7 @@
         android:id="@+id/note_display"
         android:layout_width="match_parent"
         android:layout_height="200dp"
-        android:textSize="100sp"
+        android:textSize="90sp"
         android:textColor="#000000"
         android:layout_marginRight="24dp"
         android:layout_marginLeft="24dp"

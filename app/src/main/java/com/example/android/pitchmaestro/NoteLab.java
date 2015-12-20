@@ -101,13 +101,13 @@ public class NoteLab {
     public List<Note> getNotes(){
         return mNotes;
     }
-
-    public Note getNote(UUID id){
-        for (Note note : mNotes){
-            if (note.getId().equals(id)){
-                return note;
-            }
-        }
-        return null;
-    }
+//
+//    public Note getNote(UUID id){
+//        for (Note note : mNotes){
+//            if (note.getId().equals(id)){
+//                return note;
+//            }
+//        }
+//        return null;
+//    }
 }

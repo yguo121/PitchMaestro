@@ -20,7 +20,11 @@ import be.tarsos.dsp.pitch.PitchDetectionResult;
 import be.tarsos.dsp.pitch.PitchProcessor;
 
 /**
- * Created by stephen on 11/17/15.
+ * This class contains the piano notes list.
+ *
+ * @author Yinghuan Wang (yinghuanwang521@gmail.com )
+ * @author Yaoqi Guo (yaoqi.guo@trincoll.edu)
+ * @author Peter Jung (peter.jung@trincoll.edu)
  */
 public class PitchDetectorFragment extends Fragment{
 

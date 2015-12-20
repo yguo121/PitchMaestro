@@ -12,6 +12,8 @@ import android.widget.RelativeLayout;
  * The is the home page fragment which contains two buttons.
  *
  * @author Yinghuan Wang (yinghuanwang521@gmail.com )
+ * @author Yaoqi Guo (yaoqi.guo@trincoll.edu)
+ * @author Peter Jung (peter.jung@trincoll.edu)
  */
 public class HomePageFragment extends Fragment {
 

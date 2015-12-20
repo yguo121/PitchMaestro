@@ -22,6 +22,7 @@ import java.util.List;
  *
  * @author Yinghuan Wang (yinghuanwang521@gmail.com )
  * @author Yaoqi Guo (yaoqi.guo@trincoll.edu)
+ * @author Peter Jung (peter.jung@trincoll.edu)
  */
 public class NoteListFragmentPiano extends Fragment {
 
@@ -119,15 +120,26 @@ public class NoteListFragmentPiano extends Fragment {
     }
 
     /**
-     * The adapter class.
+     * The adapter class. Creates an adapter for the recycler view.
      */
     private class NoteAdapter extends RecyclerView.Adapter<NoteHolder>{
-        private List<Note> mNotes;
 
+        private List<Note> mNotes;      //the list of notes.
+
+        /**
+         * The constructor of the adapter.
+         * @return note adapter.
+         */
         public NoteAdapter(List<Note>notes){
             mNotes = notes;
         }
 
+        /**
+         * Create the note holder.
+         * @param parent - the parent.
+         * @param viewType - the view type.
+         * @return returns a note holder.
+         */
         @Override
         public NoteHolder onCreateViewHolder(ViewGroup parent, int viewType){
             LayoutInflater layoutInflater = LayoutInflater.from(getActivity());
@@ -135,22 +147,25 @@ public class NoteListFragmentPiano extends Fragment {
             return new NoteHolder(view);
         }
 
+        /**
+         * Bind the note with the note holder.
+         * @param holder - the note holder.
+         * @param position - the position of the current holder.
+         */
         @Override
         public void onBindViewHolder(NoteHolder holder, int position){
             Note note = mNotes.get(position);
             holder.bindNote(note);
         }
 
+        /**
+         * Count the size of the note list.
+         * @return the size of the list
+         */
         @Override
         public int getItemCount(){
             return mNotes.size();
         }
 
-    }
-
-
-    public static NoteListFragmentPiano newInstance() {
-        NoteListFragmentPiano f = new NoteListFragmentPiano();
-        return f;
     }
 }

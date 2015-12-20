@@ -9,6 +9,8 @@ import android.support.v7.app.AppCompatActivity;
  * The abstract class used by other activities.
  *
  * @author Yinghuan Wang (yinghuanwang521@gmail.com )
+ * @author Yaoqi Guo (yaoqi.guo@trincoll.edu)
+ * @author Peter Jung (peter.jung@trincoll.edu)
  */
 public abstract class SingleFragmentActivity extends AppCompatActivity {
 

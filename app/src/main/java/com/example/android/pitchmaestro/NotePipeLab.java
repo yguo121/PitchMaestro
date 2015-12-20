@@ -1,12 +1,10 @@
 package com.example.android.pitchmaestro;
 
 
-import android.content.ContentValues;
 import android.content.Context;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.UUID;
 
 /**
  * This is the class of the Note.
@@ -15,10 +13,9 @@ import java.util.UUID;
  * @author Yaoqi Guo (yaoqi.guo@trincoll.edu)
  * @author Peter Jung (peter.jung@trincoll.edu)
  */
-public class NoteLab {
+public class NotePipeLab {
 
-    private static NoteLab sNoteLab;        // the note.
-
+    private static NotePipeLab sNoteLab;        // the note.
     private List<Note> mNotes;              // the list of all the notes.
 
 
@@ -26,32 +23,30 @@ public class NoteLab {
      * The constructor of the notes.
      * @return Notelab - the note lab.
      */
-    public static NoteLab get(Context context){
+    public static NotePipeLab get(Context context){
         if (sNoteLab == null){
-            sNoteLab = new NoteLab(context);
+            sNoteLab = new NotePipeLab();
         }
         return sNoteLab;
     }
 
     /**
      * The constructor of the notes which sets the title and the audio file accordingly.
-     * @param context
      */
-    private NoteLab(Context context){
+    private NotePipeLab(){
         mNotes = new ArrayList<>();
 
         for (int i = 0; i < 8; i++) {
             for (int j = 0; j < 12; j++) {
                 Note note = new Note();
 
-                int indexPipe = i*12 + j + 1;       // index of the pipe
-                int indexPiano = indexPipe - 9;     // index of the piano
-                int indexString = indexPipe;        // index of the string
+                int indexPipe = i*12 + j + 1;                       // index of the pipe
+                //TODO delete after finishing NotePianoLab,java
+                int indexPiano = indexPipe - 9;                     // index of the piano
 
-                // set the file name.
-                note.setPipeFile("pipe (" + indexPipe + ").wav");
+                note.setPipeFile("pipe (" + indexPipe + ").wav");   // set the file name.
+                //TODO delete after finishing NotePianoLab,java
                 note.setPianoFile("piano (" + indexPiano + ").wav");
-                note.setStringFile("string (" + indexString + ").wav");
 
                 // set the title accordingly
                 switch(j) {

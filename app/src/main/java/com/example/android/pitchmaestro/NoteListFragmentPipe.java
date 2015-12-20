@@ -3,7 +3,6 @@ package com.example.android.pitchmaestro;
 import android.content.res.AssetFileDescriptor;
 import android.media.MediaPlayer;
 import android.os.Bundle;
-import android.os.Handler;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -11,7 +10,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.android.pitchmaestro.radialmenu.DividerItemDecoration;
 
@@ -48,7 +46,7 @@ public class NoteListFragmentPipe extends Fragment {
      * updates the UI accordingly.
      */
     private void updateUI(){
-        NoteLab noteLab = NoteLab.get(getActivity());
+        NotePipeLab noteLab = NotePipeLab.get(getActivity());
         List<Note> notes = noteLab.getNotes();
 
         mAdapter = new NoteAdapter(notes);

@@ -3,7 +3,7 @@ package com.example.android.pitchmaestro;
 import java.util.UUID;
 
 /**
- * This is the class of the Note.
+ * This is the class of the Note, used in advanced Note Player module.
  *
  * @author Yinghuan Wang (yinghuanwang521@gmail.com )
  * @author Yaoqi Guo (yaoqi.guo@trincoll.edu)
@@ -14,7 +14,6 @@ public class Note {
     private UUID mId;               // the id of the note.
     private String mTitle;          // the title of the note.
     private String mPianoFile;      // the piano file name.
-    private String mStringFile;     // the string file name.
     private String mPipeFile;       // the pipe file name.
 
     /**
@@ -80,19 +79,4 @@ public class Note {
         mPianoFile = pianoFile;
     }
 
-    /**
-     * Getter of the String file.
-     * @return mStringFile - the string file name.
-     */
-    public String getStringFile() {
-        return mStringFile;
-    }
-
-    /**
-     * Setter of the title.
-     * @param stringFile - the name of the string file.
-     */
-    public void setStringFile(String stringFile) {
-        mStringFile = stringFile;
-    }
 }

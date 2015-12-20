@@ -10,7 +10,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.android.pitchmaestro.radialmenu.DividerItemDecoration;
 
@@ -44,7 +43,7 @@ public class NoteListFragmentPiano extends Fragment {
      * updates the UI accordingly.
      */
     private void updateUI(){
-        NoteLab noteLab = NoteLab.get(getActivity());
+        NotePianoLab noteLab = NotePianoLab.get(getActivity());
         List<Note> notes = noteLab.getNotes();
 
         mAdapter = new NoteAdapter(notes);
@@ -58,15 +57,15 @@ public class NoteListFragmentPiano extends Fragment {
         private TextView mTitleTextView;        // the text view of the note holder
         private Note mNote;                     // the content of the note holder
 
-
         /**
          * The constructor of the note holder.
          * @param  itemView - the view of the note holder.
          */
         public NoteHolder(View itemView){
             super(itemView);
-            itemView.setOnClickListener(this);                                                      // the click listener
-            mTitleTextView = (TextView) itemView.findViewById(R.id.list_item_note_title_text_view); // set the text.
+            itemView.setOnClickListener(this);  // the click listener
+            // set the text.
+            mTitleTextView = (TextView) itemView.findViewById(R.id.list_item_note_title_text_view);
         }
 
         /**

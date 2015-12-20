@@ -64,7 +64,9 @@ public class NoteListFragmentPipe extends Fragment {
 
         @Override
         public void onClick(View v){
-            //v.setSoundEffectsEnabled(false);
+
+            mTitleTextView.setBackgroundColor(0xFFC0C0C0);
+
             final MediaPlayer mp = new MediaPlayer();
 
             if (mp.isPlaying())
@@ -89,6 +91,7 @@ public class NoteListFragmentPipe extends Fragment {
             mp.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
                 @Override
                 public void onCompletion(MediaPlayer mp) {
+                    mTitleTextView.setBackgroundColor(0x00FFFFFF);
                     mp.release();
                 }
             });

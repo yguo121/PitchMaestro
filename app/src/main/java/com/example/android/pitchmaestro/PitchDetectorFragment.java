@@ -62,7 +62,7 @@ public class PitchDetectorFragment extends Fragment{
 
         for (int i=0, j=0; i<mNoteArray.length; i+=12, j++) {
             String k = Integer.toString(j);
-            mNoteArray[i]       = "C"+k;
+            mNoteArray[i]       = "C";
             mNoteArray[i+1]     = "C\u266F"+k+"/D\u266D"+k;
             mNoteArray[i+2]     = "D"+k;
             mNoteArray[i+3]     = "D\u266F"+k+"/E\u266D"+k;

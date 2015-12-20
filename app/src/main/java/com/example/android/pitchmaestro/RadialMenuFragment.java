@@ -28,13 +28,12 @@ public class RadialMenuFragment extends android.support.v4.app.Fragment {
     final MediaPlayer mp = new MediaPlayer();
 
     private RadialMenuWidget pieMenu;
-    private Button mAdvanced;
 
     public RadialMenuItem menuItem, menuExpandItem, ChildItem1, ChildItem2, ChildItem3, ChildItem4, ChildItem5, ChildItem6, ChildItem7, ChildItem8, ChildItem9, ChildItem10, ChildItem11, ChildItem12;
 
     @SuppressWarnings("serial")
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+    public View onCreateView(final LayoutInflater inflater, final ViewGroup container, Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.note_player_second, container, false);
 
         pieMenu = new RadialMenuWidget(getActivity());
@@ -59,6 +58,7 @@ public class RadialMenuFragment extends android.support.v4.app.Fragment {
 
         //pieMenu.setDismissOnOutsideClick(true, menuLayout);
         pieMenu.setAnimationSpeed(0L);
+        pieMenu.setBackgroundColor(0);
         pieMenu.setSourceLocation(180, 200);
         pieMenu.setIconSize(15, 30);
         pieMenu.setTextSize(13);
@@ -101,17 +101,17 @@ public class RadialMenuFragment extends android.support.v4.app.Fragment {
         setNoteToItem(ChildItem11, "wheel11.wav");
         setNoteToItem(ChildItem12, "wheel12.wav");
 
-        pieMenu.setHeader("Touch Outside to Exit", 50);
+        pieMenu.setHeader("Tap outside to exit", 50);
 
-        Button BasicButton = (Button)v.findViewById(R.id.note_basic);
-        BasicButton.setOnClickListener(new View.OnClickListener() {
+        Button mBasicButton = (Button)v.findViewById(R.id.note_basic);
+        mBasicButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 pieMenu.show(v);
             }
         });
 
-        mAdvanced = (Button) v.findViewById(R.id.note_advanced);
+        Button mAdvanced = (Button) v.findViewById(R.id.note_advanced);
         mAdvanced.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -156,6 +156,13 @@ public class RadialMenuFragment extends android.support.v4.app.Fragment {
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
+
+                mp.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+                    @Override
+                    public void onCompletion(MediaPlayer mp) {
+                        mp.release();
+                    }
+                });
             }
         });
     }

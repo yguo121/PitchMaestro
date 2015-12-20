@@ -85,6 +85,13 @@ public class NoteListFragmentPipe extends Fragment {
             } catch (IOException e) {
                 e.printStackTrace();
             }
+
+            mp.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+                @Override
+                public void onCompletion(MediaPlayer mp) {
+                    mp.release();
+                }
+            });
         }
 
 

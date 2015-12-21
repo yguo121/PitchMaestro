@@ -20,7 +20,8 @@ import be.tarsos.dsp.pitch.PitchDetectionResult;
 import be.tarsos.dsp.pitch.PitchProcessor;
 
 /**
- * This class contains the piano notes list.
+ * This class contains the piano notes list. The Tarsos API is used in this fragment and please check
+ * http://0110.be/releases/TarsosDSP/TarsosDSP-latest/TarsosDSP-latest-Readme.html
  *
  * @author Yinghuan Wang (yinghuanwang521@gmail.com )
  * @author Yaoqi Guo (yaoqi.guo@trincoll.edu)
@@ -88,8 +89,7 @@ public class PitchDetectorFragment extends Fragment{
             public void handlePitch(PitchDetectionResult result,AudioEvent e) {
                 final float pitchInHz = result.getPitch();
                 final int pitchInHzInInteger = Math.round(pitchInHz);
-                //setColor(getDifference(pitchInHz));
-                //mPosYellow.setBackgroundColor(getResources().getColor(R.color.yellow));
+
                 if(getActivity()==null)
                     return;
                 getActivity().runOnUiThread(new Runnable() {
@@ -116,6 +116,7 @@ public class PitchDetectorFragment extends Fragment{
         new Thread(dispatcher,"Audio Dispatcher").start();
 
         return v;
+        // The code above is from http://0110.be/posts/TarsosDSP_on_Android_-_Audio_Processing_in_Java_on_Android.
     }
 
     private String getNote(float pitch) {
@@ -128,26 +129,12 @@ public class PitchDetectorFragment extends Fragment{
 
     private String getDifference(float pitch) {
 
-        /*
-        double step = 1.0/12.0;
-        double expStep = Math.pow(2.0, step);
-        double cNoteA4 = 12.0 * Math.log(440.0) / Math.log(2);  // Log-value pitch of Note A4
-        int indNoteA4 = 57;                                     // Index of Note A4 in the mNoteArray
-        */
-
         double c = 1.0/12.0*Math.log(2.0);
         double p = (double) pitch;                              // Pitch in Hertz
         double e = (Math.log(p)-2.79)/c;
         int ind = Math.round((float) e);                        // Index in the mNoteArray
         double lp = 2.79 + (ind*c);
         double diff = Math.log(pitch) - lp;
-
-        /*
-        double c = (Math.log(p)/Math.log(expStep));             // Log-value pitch
-        double cNote = step * (ind - indNoteA4) + cNoteA4;      // Nearest Note in log-value
-        double cDiff = c - cNote;
-        */
-
 
         if (diff > 0.02) {
             return rightRed;            // >0.02
@@ -162,7 +149,6 @@ public class PitchDetectorFragment extends Fragment{
         } else {
             return "";
         }
-
     }
 
     private void setColor(String color){

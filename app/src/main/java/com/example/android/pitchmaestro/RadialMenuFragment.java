@@ -25,6 +25,8 @@ import com.example.android.pitchmaestro.radialmenu.RadialMenuWidget;
 
 /**
  * This is the Radial Menu and it has been divided into 12 parts and it has two buttons.
+ * The Radial Menu is a widget designed by strider2023@gmail.com please check
+ * https://github.com/strider2023/Radial-Menu-Widget-Android.
  *
  * @author Yinghuan Wang (yinghuanwang521@gmail.com )
  * @author Yaoqi Guo (yaoqi.guo@trincoll.edu)

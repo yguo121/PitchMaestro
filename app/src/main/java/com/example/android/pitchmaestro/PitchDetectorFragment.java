@@ -104,8 +104,10 @@ public class PitchDetectorFragment extends Fragment{
                             setColor(getDifference(pitchInHz));
                             mLast = getNote(pitchInHz);
                         } else { //no pitch detected
-                            resetColor();
-                            mNoteDisplay.setText(mLast); //displays last detected pitch
+                            if(isAdded()) { //ensure that fragment is attached to the activity
+                                resetColor();
+                                mNoteDisplay.setText(mLast); //displays last detected pitch
+                            }
                         }
                     }
                 });
@@ -210,5 +212,4 @@ public class PitchDetectorFragment extends Fragment{
         mPosYellow.setBackgroundColor(getResources().getColor(R.color.trans_yellow));
         mPosRed.setBackgroundColor(getResources().getColor(R.color.trans_red));
     }
-
 }

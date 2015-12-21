@@ -83,6 +83,7 @@ public class PitchDetectorFragment extends Fragment{
         }
 
         AudioDispatcher dispatcher = AudioDispatcherFactory.fromDefaultMicrophone(22050, 1024, 0);
+        //connects AudioDispatcher to Android device microphone
 
         PitchDetectionHandler pdh = new PitchDetectionHandler() {
             @Override
@@ -98,14 +99,14 @@ public class PitchDetectorFragment extends Fragment{
                         mNoteDisplay = (TextView) v.findViewById(R.id.note_display);
                         mPitchDisplay = (TextView) v.findViewById(R.id.pitch_display);
 
-                        if (pitchInHz != -1) {
+                        if (pitchInHz != -1) { //pitch is detected
                             mNoteDisplay.setText(getNote(pitchInHz));
                             mPitchDisplay.setText(pitchInHzInInteger + " Hz");
                             setColor(getDifference(pitchInHz));
                             mLast = getNote(pitchInHz);
-                        } else {
+                        } else { //no pitch detected
                             resetColor();
-                            mNoteDisplay.setText(mLast);
+                            mNoteDisplay.setText(mLast); //displays last detected pitch
                         }
                     }
                 });
@@ -119,22 +120,36 @@ public class PitchDetectorFragment extends Fragment{
         // The code above is from http://0110.be/posts/TarsosDSP_on_Android_-_Audio_Processing_in_Java_on_Android.
     }
 
+    /**
+     * Gets the note that corresponds to the detected pitch
+     * @param pitch
+     * @return note in mNoteArray
+     */
     private String getNote(float pitch) {
         double p = (double) pitch;              // Pitch in Hertz
         double e = (Math.log(p)-2.79)/0.058;
-        int i = Math.round((float) e);          // Index in the mNoteArray
+        // linearization of note frequencies; ln(note frequency) = 2.79 + 0.058*(note number)
+        int i = Math.round((float) e);          // Closest index in mNoteArray
 
         return mNoteArray[i];
     }
 
+    /**
+     * Calculates the difference between the detected frequency and literature value frequency
+     * @param pitch
+     * @return color
+     */
     private String getDifference(float pitch) {
 
         double c = 1.0/12.0*Math.log(2.0);
-        double p = (double) pitch;                              // Pitch in Hertz
+        // Standard difference between the natural log of the frequencies of consecutive notes
+        double p = (double) pitch;              // Pitch in Hertz
         double e = (Math.log(p)-2.79)/c;
-        int ind = Math.round((float) e);                        // Index in the mNoteArray
-        double lp = 2.79 + (ind*c);
+        // linearization of note frequencies; ln(note frequency) = 2.79 + 0.058*(note number)
+        int ind = Math.round((float) e);       // Closest index in the mNoteArray
+        double lp = 2.79 + (ind*c);            // Natural log of literature value frequency
         double diff = Math.log(pitch) - lp;
+        // Difference between natural log of literature value and natural log of detected frequency
 
         if (diff > 0.02) {
             return rightRed;            // >0.02
@@ -151,6 +166,10 @@ public class PitchDetectorFragment extends Fragment{
         }
     }
 
+    /**
+     * Sets the state of pitch meter
+     * @param color
+     */
     private void setColor(String color){
         if (color == "") {
             resetColor();
@@ -182,6 +201,9 @@ public class PitchDetectorFragment extends Fragment{
         }
     }
 
+    /**
+     * Resets pitch meter
+     */
     private void resetColor() {
         mNegRed.setBackgroundColor(getResources().getColor(R.color.trans_red));
         mNegYellow.setBackgroundColor(getResources().getColor(R.color.trans_yellow));

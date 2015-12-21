@@ -114,8 +114,6 @@ public class NoteListFragmentPiano extends Fragment {
                 }
             });
         }
-
-
     }
 
     /**

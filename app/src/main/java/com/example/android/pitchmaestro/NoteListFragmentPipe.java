@@ -85,22 +85,25 @@ public class NoteListFragmentPipe extends Fragment {
          */
         @Override
         public void onClick(View v){
-
+            // Highlight the current TextView when clicked
+            // by setting the background color to transparent.
             mTitleTextView.setBackgroundColor(0xFFD1EEEE);
 
-            final MediaPlayer mp = new MediaPlayer();       //start a media player
-
-            if (mp.isPlaying())
-            {
-                mp.stop();
-            }
+            // Initialize a MediaPlayer object.
+            final MediaPlayer mp = new MediaPlayer();
 
             try {
+                // Reset the MediaPlayer.
                 mp.reset();
 
+                // Use an AssetFileDescriptor object to locate the audio file to be played.
                 AssetFileDescriptor afd;
                 afd = getContext().getAssets().openFd(mNote.getPipeFile());
+
+                // Link the audio file to be played with the MediaPlayer.
                 mp.setDataSource(afd.getFileDescriptor(), afd.getStartOffset(), afd.getLength());
+
+                // Prepare and start playing the linked audio file.
                 mp.prepare();
                 mp.start();
             } catch (IllegalStateException e) {
@@ -112,9 +115,13 @@ public class NoteListFragmentPipe extends Fragment {
             mp.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
                 @Override
                 public void onCompletion(MediaPlayer mp) {
+                    // Stop highlighting the current TextView after the audio finishes playing
+                    // by setting the background color to transparent.
                     mTitleTextView.setBackgroundColor(0x00FFFFFF);
+
+                    // Release the MediaPlayer to end its lifecycle.
                     mp.release();
-                    //release the media player
+
                 }
             });
         }

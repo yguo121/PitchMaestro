@@ -42,14 +42,14 @@ public class NotePianoLab {
             String[] octaves = {"\u2080", "\u2081", "\u2082", "\u2083",
                     "\u2084", "\u2085", "\u2086", "\u2087", "\u2088"};
 
-            int nOctave = (i < 2) ? 0 : (i + 9)/12;
-            int nNote = (i + 9) % 12;
-            int indexPiano = i + 1;     // index of the piano
+            int nOctave = (i < 2) ? 0 : (i + 9)/12; // the octave the current note is in
+            int nNote = (i + 9) % 12;               // the note name of the current note
+            int indexPiano = i + 1;                 // index of the piano files
 
-            // set the file name.
+            // Set the file name.
             note.setPianoFile("piano (" + indexPiano + ").wav");
 
-            // set the title accordingly
+            // Set the title accordingly.
             switch(nNote) {
                 case 0:
                     note.setTitle("C" + octaves[nOctave]);
@@ -100,7 +100,6 @@ public class NotePianoLab {
                     mNotes.add(note);
                     break;
             }
-
         }
     }
 

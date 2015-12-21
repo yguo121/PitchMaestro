@@ -20,8 +20,7 @@ import be.tarsos.dsp.pitch.PitchDetectionResult;
 import be.tarsos.dsp.pitch.PitchProcessor;
 
 /**
- * This class contains the piano notes list. The Tarsos API is used in this fragment and please check
- * http://0110.be/releases/TarsosDSP/TarsosDSP-latest/TarsosDSP-latest-Readme.html
+ * This class contains the piano notes list.
  *
  * @author Yinghuan Wang (yinghuanwang521@gmail.com )
  * @author Yaoqi Guo (yaoqi.guo@trincoll.edu)

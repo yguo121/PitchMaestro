@@ -47,7 +47,7 @@ public class NotePianoLab {
             int indexPiano = i + 1;                 // index of the piano files
 
             // Set the file name.
-            note.setPianoFile("piano (" + indexPiano + ").wav");
+            note.setPianoFile("piano (" + indexPiano + ").aac");
 
             // Set the title accordingly.
             switch(nNote) {

@@ -44,7 +44,7 @@ public class NotePipeLab {
                 String[] octaves = {"\u2080", "\u2081", "\u2082", "\u2083",
                         "\u2084", "\u2085", "\u2086", "\u2087", "\u2088"};
 
-                note.setPipeFile("pipe (" + indexPipe + ").wav");   // set the file name.
+                note.setPipeFile("pipe (" + indexPipe + ").aac");   // set the file name.
 
                 // set the title accordingly
                 switch(j) {
@@ -57,7 +57,7 @@ public class NotePipeLab {
                         mNotes.add(note);
                         break;
                     case 2:
-                        note.setTitle("D" + i);
+                        note.setTitle("D" + octaves[i]);
                         mNotes.add(note);
                         break;
                     case 3:

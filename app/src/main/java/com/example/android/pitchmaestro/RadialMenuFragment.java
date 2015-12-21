@@ -97,18 +97,18 @@ public class RadialMenuFragment extends android.support.v4.app.Fragment {
         pieMenu.setCenterCircleRadius(80);
         pieMenu.setTextSize(30);
 
-        setNoteToItem(ChildItem1, "wheel01.wav");
-        setNoteToItem(ChildItem2, "wheel02.wav");
-        setNoteToItem(ChildItem3, "wheel03.wav");
-        setNoteToItem(ChildItem4, "wheel04.wav");
-        setNoteToItem(ChildItem5, "wheel05.wav");
-        setNoteToItem(ChildItem6, "wheel06.wav");
-        setNoteToItem(ChildItem7, "wheel07.wav");
-        setNoteToItem(ChildItem8, "wheel08.wav");
-        setNoteToItem(ChildItem9, "wheel09.wav");
-        setNoteToItem(ChildItem10, "wheel10.wav");
-        setNoteToItem(ChildItem11, "wheel11.wav");
-        setNoteToItem(ChildItem12, "wheel12.wav");
+        setNoteToItem(ChildItem1, "wheel01.aac");
+        setNoteToItem(ChildItem2, "wheel02.aac");
+        setNoteToItem(ChildItem3, "wheel03.aac");
+        setNoteToItem(ChildItem4, "wheel04.aac");
+        setNoteToItem(ChildItem5, "wheel05.aac");
+        setNoteToItem(ChildItem6, "wheel06.aac");
+        setNoteToItem(ChildItem7, "wheel07.aac");
+        setNoteToItem(ChildItem8, "wheel08.aac");
+        setNoteToItem(ChildItem9, "wheel09.aac");
+        setNoteToItem(ChildItem10, "wheel10.aac");
+        setNoteToItem(ChildItem11, "wheel11.aac");
+        setNoteToItem(ChildItem12, "wheel12.aac");
         // bind audio files with the buttons.
 
         pieMenu.setHeader("Tap outside to exit", 50);
